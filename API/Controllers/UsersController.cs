@@ -171,14 +171,20 @@ namespace API.Controllers
                 }
                 else
                 {
-                    var user = new UserVM();
-                    user.Id = getUserRole.User.Id;
-                    user.Username = getUserRole.User.UserName;
-                    user.Email = getUserRole.User.Email;
-                    user.Password = getUserRole.User.PasswordHash;
-                    user.Phone = getUserRole.User.PhoneNumber;
-                    user.RoleName = getUserRole.Role.Name;
-                    return StatusCode(200, user);
+                    //var user = new UserVM();
+                    //user.Id = getUserRole.User.Id;
+                    //user.Username = getUserRole.User.UserName;
+                    //user.Email = getUserRole.User.Email;
+                    //user.Password = getUserRole.User.PasswordHash;
+                    //user.Phone = getUserRole.User.PhoneNumber;
+                    //user.RoleName = getUserRole.Role.Name;
+                    //return StatusCode(200, user);
+                    return StatusCode(200, new { 
+                        Id = getUserRole.User.Id,
+                        Username = getUserRole.User.UserName,
+                        Email = getUserRole.User.Email,
+                        RoleName = getUserRole.Role.Name
+                    });
                 }
             }
             return BadRequest(500);
