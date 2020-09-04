@@ -13,6 +13,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters.Internal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Net.Mail;
+using API.Services;
+using System.Net;
+using System.Text;
 
 namespace API.Controllers
 {
@@ -22,6 +26,10 @@ namespace API.Controllers
     {
         private readonly MyContext _context;
         private readonly UserManager<User> _userManager;
+        AttrEmail attrEmail = new AttrEmail();
+        RandomDigit randDig = new RandomDigit();
+        SmtpClient client = new SmtpClient();
+
         public UsersController(MyContext myContext,UserManager<User> userManager)
         {
             _context = myContext;
@@ -33,7 +41,7 @@ namespace API.Controllers
         public async Task<List<UserVM>> GetAll()
         {
             List<UserVM> list = new List<UserVM>();
-            var user = new UserVM();
+            //var user = new UserVM();
             var getData = await _context.UserRole.Include("User").Include("Role").ToListAsync();
             if (getData.Count == 0)
             {
@@ -41,13 +49,24 @@ namespace API.Controllers
             }
             foreach (var item in getData)
             {
-                user.Id = item.User.Id;
-                user.Username = item.User.UserName;
-                user.Email = item.User.Email;
-                user.Password = item.User.PasswordHash;
-                user.Phone = item.User.PhoneNumber;
-                user.RoleName = item.Role.Name; 
+                var user = new UserVM()
+                {
+                    Id = item.User.Id,
+                    Username = item.User.UserName,
+                    Email = item.User.Email,
+                    Password = item.User.PasswordHash,
+                    Phone = item.User.PhoneNumber,
+                    RoleName = item.Role.Name,
+                    VerifyCode = item.User.SecurityStamp,
+                };
                 list.Add(user);
+                //user.Id = item.User.Id;
+                //user.Username = item.User.UserName;
+                //user.Email = item.User.Email;
+                //user.Password = item.User.PasswordHash;
+                //user.Phone = item.User.PhoneNumber;
+                //user.RoleName = item.Role.Name;
+                //list.Add(user);
             }
             return list;
         }
@@ -55,7 +74,6 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public UserVM GetID(string id)
         {
-
             var getData = _context.UserRole.Include("User").Include("Role").SingleOrDefault(x => x.UserId == id);
             if (getData == null || getData.Role == null || getData.User == null)
             {
@@ -79,10 +97,30 @@ namespace API.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User 
+                client.Port = 587;
+                client.Host = "smtp.gmail.com";
+                client.EnableSsl = true;
+                client.Timeout = 10000;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential(attrEmail.mail, attrEmail.pass);
+
+                var code = randDig.GenerateRandom();
+                var fill = "Hi " + userVM.Username + "\n\n"
+                          + "Try this Password to get into reset password: \n"
+                          + code
+                          + "\n\nThank You";
+
+                MailMessage mm = new MailMessage("donotreply@domain.com", userVM.Email, "Create Email", fill);
+                mm.BodyEncoding = UTF8Encoding.UTF8;
+                mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                client.Send(mm);
+
+                var user = new User
                 {
                     UserName = userVM.Username,
                     Email = userVM.Email,
+                    SecurityStamp = code,
                     PasswordHash = Bcrypt.HashPassword(userVM.Password),
                     PhoneNumber = userVM.Phone,
                     EmailConfirmed = false,
@@ -150,7 +188,6 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        //[HttpGet("{}")]
         [Route("Login")]
         public IActionResult Login(UserVM userVM)
         {
@@ -183,11 +220,52 @@ namespace API.Controllers
                         Id = getUserRole.User.Id,
                         Username = getUserRole.User.UserName,
                         Email = getUserRole.User.Email,
-                        RoleName = getUserRole.Role.Name
+                        RoleName = getUserRole.Role.Name,
+                        VerifyCode = getUserRole.User.SecurityStamp,
                     });
                 }
             }
             return BadRequest(500);
         }
+
+        [HttpPost]
+        [Route("code")]
+        public IActionResult VerifyCode(UserVM userVM)
+        {
+            if (ModelState.IsValid)
+            {
+                var getUserRole = _context.UserRole.Include("User").Include("Role").SingleOrDefault(x => x.User.Email == userVM.Email);
+                if (getUserRole == null)
+                {
+                    return NotFound();
+                }
+                else if (userVM.VerifyCode != getUserRole.User.SecurityStamp)
+                {
+                    return BadRequest(new { msg = "Your Code is Wrong" });
+                }
+                else
+                {
+                    //var user = new UserVM();
+                    //user.Id = getUserRole.User.Id;
+                    //user.Username = getUserRole.User.UserName;
+                    //user.Email = getUserRole.User.Email;
+                    //user.Password = getUserRole.User.PasswordHash;
+                    //user.Phone = getUserRole.User.PhoneNumber;
+                    //user.RoleName = getUserRole.Role.Name;
+                    //return StatusCode(200, user);
+                    return StatusCode(200, new
+                    {
+                        Id = getUserRole.User.Id,
+                        Username = getUserRole.User.UserName,
+                        Email = getUserRole.User.Email,
+                        RoleName = getUserRole.Role.Name,
+                        //Email = getUserRole.User.Email,
+                        //Password = getUserRole.User.PasswordHash
+                    });
+                }
+            }
+            return BadRequest(500);
+        }
+
     }
 }

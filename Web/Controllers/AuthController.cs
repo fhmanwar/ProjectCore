@@ -31,6 +31,12 @@ namespace Web.Controllers
             return View();
         }
 
+        [Route("verify")]
+        public IActionResult Verify()
+        {
+            return View();
+        }
+
         [Route("validate")]
         public IActionResult Validate(UserVM userVM)
         {
@@ -51,7 +57,14 @@ namespace Web.Controllers
                         var json = JsonConvert.DeserializeObject(data).ToString();
                         var account = JsonConvert.DeserializeObject<UserVM>(json);
                         //if (BC.Verify(userVM.Password, account.Password) && (account.RoleName == "Admin" || account.RoleName == "Sales"))
-                        if (account.RoleName == "Admin" || account.RoleName == "Sales")
+                        if (account.VerifyCode != null)
+                        {
+                            if (userVM.VerifyCode != account.VerifyCode)
+                            {
+                                return Json(new { status = true, msg = "Check your Code" });
+                            }
+                        }
+                        else if (account.RoleName == "Admin" || account.RoleName == "Sales")
                         {
                             HttpContext.Session.SetString("id", account.Id);
                             HttpContext.Session.SetString("uname", account.Username);
@@ -79,7 +92,7 @@ namespace Web.Controllers
                 else
                 {
                     //return RedirectToAction("Login","Auth");
-                    return Json(new { status = false, msg = "Username Not Found!" });
+                    return Json(new { status = false, msg = "Something Wrong!" });
                 }
             }
             else if (userVM.Username != null)
@@ -99,6 +112,69 @@ namespace Web.Controllers
                 }
             }
             return Redirect("/login");
+        }
+
+        [Route("verifCode")]
+        public IActionResult VerifCode(UserVM userVM)
+        {
+            if (userVM.VerifyCode != null)
+            {
+                var jsonUserVM = JsonConvert.SerializeObject(userVM);
+                var buffer = System.Text.Encoding.UTF8.GetBytes(jsonUserVM);
+                var byteContent = new ByteArrayContent(buffer);
+                byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                var result = client.PostAsync("users/code/", byteContent).Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var data = result.Content.ReadAsStringAsync().Result;
+                    if (data != "")
+                    {
+                        var json = JsonConvert.DeserializeObject(data).ToString();
+                        var account = JsonConvert.DeserializeObject<UserVM>(json);
+                        if (account.RoleName == "Admin" || account.RoleName == "Sales")
+                        {
+                            HttpContext.Session.SetString("id", account.Id);
+                            HttpContext.Session.SetString("uname", account.Username);
+                            HttpContext.Session.SetString("email", account.Email);
+                            HttpContext.Session.SetString("lvl", account.RoleName);
+                            if (account.RoleName == "Admin")
+                            {
+                                return Json(new { status = true, msg = "Login Successfully !", acc = "Admin" });
+                            }
+                            else
+                            {
+                                return Json(new { status = true, msg = "Login Successfully !", acc = "Sales" });
+                            }
+                        }
+                        else
+                        {
+                            return Json(new { status = false, msg = "Invalid Username or Password!" });
+                        }
+                    }
+                    else
+                    {
+                        return Json(new { status = false, msg = "Username Not Found!" });
+                    }
+                    //var data = result.Content.ReadAsStringAsync().Result;
+                    //var json = JsonConvert.DeserializeObject(data).ToString();
+                    //var account = JsonConvert.DeserializeObject<UserVM>(json);
+                    //var dataLogin = new UserVM()
+                    //{
+                    //    Email = account.Email,
+                    //    Password = account.Password
+                    //};
+                    //this.Validate(dataLogin);
+                    //return Json(new { status = true, code = result, msg = "Login Success! " });
+                }
+                else
+                {
+                    return Json(new { status = false, msg = "Your Code is Wrong!" });
+                }
+            }
+            else
+            {
+                return Json(new { status = false, msg = "Something Wrong!" });
+            }
         }
 
         [Route("logout")]

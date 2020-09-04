@@ -15,5 +15,6 @@ namespace API.ViewModels
         public string Phone { get; set; }
         public string RoleID { get; set; }
         public string RoleName { get; set; }
+        public string VerifyCode { get; set; }
     }
 }
