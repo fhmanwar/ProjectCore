@@ -50,7 +50,8 @@ namespace Web.Controllers
                     {
                         var json = JsonConvert.DeserializeObject(data).ToString();
                         var account = JsonConvert.DeserializeObject<UserVM>(json);
-                        if (BC.Verify(userVM.Password, account.Password) && (account.RoleName == "Admin" || account.RoleName == "Sales"))
+                        //if (BC.Verify(userVM.Password, account.Password) && (account.RoleName == "Admin" || account.RoleName == "Sales"))
+                        if (account.RoleName == "Admin" || account.RoleName == "Sales")
                         {
                             HttpContext.Session.SetString("id", account.Id);
                             HttpContext.Session.SetString("uname", account.Username);
@@ -103,6 +104,7 @@ namespace Web.Controllers
         [Route("logout")]
         public IActionResult Logout()
         {
+            //HttpContext.Session.Remove("lvl");
             HttpContext.Session.Clear();
             return Redirect("/login");
         }
