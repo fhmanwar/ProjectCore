@@ -18,9 +18,14 @@ using API.Services;
 using System.Net;
 using System.Text;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
+    //[Authorize] //authorize for one controller
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -30,13 +35,16 @@ namespace API.Controllers
         AttrEmail attrEmail = new AttrEmail();
         RandomDigit randDig = new RandomDigit();
         SmtpClient client = new SmtpClient();
+        public IConfiguration _configuration;
 
-        public UsersController(MyContext myContext,UserManager<User> userManager)
+        public UsersController(MyContext myContext,UserManager<User> userManager, IConfiguration config)
         {
             _context = myContext;
             _userManager = userManager;
+            _configuration = config;
         }
 
+        [Authorize]
         // GET api/values
         [HttpGet]
         public async Task<List<UserVM>> GetAll()
@@ -72,6 +80,7 @@ namespace API.Controllers
             return list;
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public UserVM GetID(string id)
         {
@@ -217,13 +226,45 @@ namespace API.Controllers
                     //user.Phone = getUserRole.User.PhoneNumber;
                     //user.RoleName = getUserRole.Role.Name;
                     //return StatusCode(200, user);
-                    return StatusCode(200, new { 
-                        Id = getUserRole.User.Id,
-                        Username = getUserRole.User.UserName,
-                        Email = getUserRole.User.Email,
-                        RoleName = getUserRole.Role.Name,
-                        VerifyCode = getUserRole.User.SecurityStamp,
-                    });
+
+                    //return StatusCode(200, new { 
+                    //    Id = getUserRole.User.Id,
+                    //    Username = getUserRole.User.UserName,
+                    //    Email = getUserRole.User.Email,
+                    //    RoleName = getUserRole.Role.Name,
+                    //    VerifyCode = getUserRole.User.SecurityStamp,
+                    //});
+                    if (getUserRole != null)
+                    {
+                        if (getUserRole.User.SecurityStamp != null)
+                        {
+                            var claims = new List<Claim> {
+                                new Claim("Id", getUserRole.User.Id),
+                                new Claim("Username", getUserRole.User.UserName),
+                                new Claim("Email", getUserRole.User.Email),
+                                new Claim("RoleName", getUserRole.Role.Name),
+                                new Claim("VerifyCode", getUserRole.User.SecurityStamp)
+                            };
+                            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+                            var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                            var token = new JwtSecurityToken(_configuration["Jwt:Issuer"], _configuration["Jwt:Audience"], claims, expires: DateTime.UtcNow.AddDays(1), signingCredentials: signIn);
+                            return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                        }
+                        else
+                        {
+                            var claims = new List<Claim> {
+                                new Claim("Id", getUserRole.User.Id),
+                                new Claim("Username", getUserRole.User.UserName),
+                                new Claim("Email", getUserRole.User.Email),
+                                new Claim("RoleName", getUserRole.Role.Name)
+                            };
+                            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+                            var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                            var token = new JwtSecurityToken(_configuration["Jwt:Issuer"], _configuration["Jwt:Audience"], claims, expires: DateTime.UtcNow.AddDays(1), signingCredentials: signIn);
+                            return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                        }
+                    }
+                    return BadRequest("Invalid credentials");
                 }
             }
             return BadRequest(500);
