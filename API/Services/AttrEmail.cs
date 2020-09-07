@@ -7,8 +7,8 @@ namespace API.Services
 {
     public class AttrEmail
     {
-        public string mail = "Your email";
-        public string pass = "Your Pass";
+        public string mail = "rio.mii.b36@gmail.com";
+        public string pass = "bootcamp36";
     }
 
     public class RandomDigit

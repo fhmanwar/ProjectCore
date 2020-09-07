@@ -17,6 +17,7 @@ using System.Net.Mail;
 using API.Services;
 using System.Net;
 using System.Text;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace API.Controllers
 {
@@ -107,7 +108,7 @@ namespace API.Controllers
 
                 var code = randDig.GenerateRandom();
                 var fill = "Hi " + userVM.Username + "\n\n"
-                          + "Try this Password to get into reset password: \n"
+                          + "Please verifty Code for this Apps : \n"
                           + code
                           + "\n\nThank You";
 
@@ -253,6 +254,8 @@ namespace API.Controllers
                     //user.Phone = getUserRole.User.PhoneNumber;
                     //user.RoleName = getUserRole.Role.Name;
                     //return StatusCode(200, user);
+                    getUserRole.User.SecurityStamp = null;
+                    _context.SaveChanges();
                     return StatusCode(200, new
                     {
                         Id = getUserRole.User.Id,

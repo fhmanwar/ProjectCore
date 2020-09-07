@@ -12623,8 +12623,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kiboy\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\iBoy\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -12632,14 +12631,11 @@
       "projectUniqueName": "D:\\MII\\MIICC\\#14-MateriCore\\ProjectCore\\Web\\Web.csproj",
       "projectName": "Web",
       "projectPath": "D:\\MII\\MIICC\\#14-MateriCore\\ProjectCore\\Web\\Web.csproj",
-      "packagesPath": "C:\\Users\\Kiboy\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\iBoy\\.nuget\\packages\\",
       "outputPath": "D:\\MII\\MIICC\\#14-MateriCore\\ProjectCore\\Web\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Kiboy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\iBoy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12699,7 +12695,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
