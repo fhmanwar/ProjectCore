@@ -36,7 +36,8 @@
           "Microsoft.Extensions.Logging.Debug": "2.1.1",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.BrowserLink": "2.1.1",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.10"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.10",
+          "Moment.js": "2.27.0"
         },
         "runtime": {
           "Web.dll": {}
@@ -744,6 +745,7 @@
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {}
         }
       },
+      "Moment.js/2.27.0": {},
       "NuGet.Frameworks/4.7.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.3"
@@ -3999,6 +4001,13 @@
       "sha512": "sha512-PKKvTxC/isyZjRtFSSfbzFlFNvLUL1JjEGex3YJQXhwGhGplIAQkDvm1PQDl9AgvrLtKv0OnUG80uq5p2I+4CA==",
       "path": "microsoft.visualstudio.web.codegenerators.mvc/2.1.10",
       "hashPath": "microsoft.visualstudio.web.codegenerators.mvc.2.1.10.nupkg.sha512"
+    },
+    "Moment.js/2.27.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KnOMHcusOKdMrlqGqNA8gKi5+lmtItmh7BuKxJPgeSL4mz4fHYYmA3fIPN/cQPsGPU5JWwED1iw8PNeT8dCbxA==",
+      "path": "moment.js/2.27.0",
+      "hashPath": "moment.js.2.27.0.nupkg.sha512"
     },
     "NuGet.Frameworks/4.7.0": {
       "type": "package",

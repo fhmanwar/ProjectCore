@@ -1,6 +1,6 @@
 ﻿var arr = [];
 function Login() {
-	debugger;
+	//debugger;
 	var validate = new Object();
 	validate.Email = $('#Email').val();
 	validate.Password = $('#Password').val();
@@ -11,7 +11,7 @@ function Login() {
 		dataType: "JSON",
 		data: validate
 	}).then((result) => {
-		debugger;
+		//debugger;
         if (result.status == true) {
             if (result.msg == "Check your Code") {
                 window.location.href = "/verify?mail=" + validate.Email;

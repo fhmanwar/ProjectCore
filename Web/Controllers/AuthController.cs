@@ -66,6 +66,7 @@ namespace Web.Controllers
                     var data = result.Content.ReadAsStringAsync().Result;
                     if (data != null)
                     {
+                        HttpContext.Session.SetString("token", "Bearer "+data);
                         var handler = new JwtSecurityTokenHandler();
                         var tokenS = handler.ReadJwtToken(data);
 

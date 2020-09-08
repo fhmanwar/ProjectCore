@@ -170,6 +170,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.1.10, )"
+            },
+            "Moment.js": {
+              "target": "Package",
+              "version": "[2.27.0, )"
             }
           },
           "imports": [

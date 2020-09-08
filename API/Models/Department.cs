@@ -16,7 +16,7 @@ namespace API.Models
         public DateTimeOffset CreateData { get; set; }
         public DateTimeOffset UpdateDate { get; set; }
         public DateTimeOffset DeleteData { get; set; }
-        public bool isDelete { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool isDelete { get; set; }
 
         //public Department() { }
         //public Department(Department department)

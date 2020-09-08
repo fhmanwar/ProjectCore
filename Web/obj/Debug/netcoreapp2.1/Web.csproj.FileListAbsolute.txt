@@ -23,6 +23,7 @@ D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Auth\NotFound.cshtml.g.cs
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Auth\Register.cshtml.g.cs
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Auth\Verify.cshtml.g.cs
+D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Department.cshtml.g.cs
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Index.cshtml.g.cs
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.cshtml.g.cs
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.cshtml.g.cs

@@ -2775,6 +2775,9 @@
           }
         }
       },
+      "Moment.js/2.27.0": {
+        "type": "package"
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -7623,6 +7626,23 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Moment.js/2.27.0": {
+      "sha512": "KnOMHcusOKdMrlqGqNA8gKi5+lmtItmh7BuKxJPgeSL4mz4fHYYmA3fIPN/cQPsGPU5JWwED1iw8PNeT8dCbxA==",
+      "type": "package",
+      "path": "moment.js/2.27.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/moment-with-locales.js",
+        "Content/Scripts/moment-with-locales.min.js",
+        "Content/Scripts/moment-with-locales.min.js.map",
+        "Content/Scripts/moment.js",
+        "Content/Scripts/moment.min.js",
+        "Content/Scripts/moment.min.js.map",
+        "moment.js.2.27.0.nupkg.sha512",
+        "moment.js.nuspec"
       ]
     },
     "NETStandard.Library/2.0.3": {
@@ -12654,7 +12674,8 @@
       "Microsoft.Extensions.Logging.Debug >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.BrowserLink >= 2.1.1",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.10"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.10",
+      "Moment.js >= 2.27.0"
     ]
   },
   "packageFolders": {
@@ -12752,6 +12773,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[2.1.10, )"
+          },
+          "Moment.js": {
+            "target": "Package",
+            "version": "[2.27.0, )"
           }
         },
         "imports": [

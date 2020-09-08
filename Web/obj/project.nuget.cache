@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JcEx56EaDZpw3z5vpvOPi34WaTPTM1F4CtreZMfHnvosiWgZg4CUPdxoW783lRtYOIJNqwyDGCcXJpYqvovZpA==",
+  "dgSpecHash": "LsFwYkLuuGrIvnowLJDt+Nw02aLzP3GwzqvDIL1G4WL5hNFaz330a2tSVmnWybFTkh3o3N18WlNKBrzI881snA==",
   "success": true,
   "projectFilePath": "D:\\MII\\MIICC\\#14-MateriCore\\ProjectCore\\Web\\Web.csproj",
   "expectedPackageFiles": [
@@ -182,6 +182,7 @@
     "C:\\Users\\iBoy\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.utils\\2.1.10\\microsoft.visualstudio.web.codegeneration.utils.2.1.10.nupkg.sha512",
     "C:\\Users\\iBoy\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\2.1.10\\microsoft.visualstudio.web.codegenerators.mvc.2.1.10.nupkg.sha512",
     "C:\\Users\\iBoy\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\iBoy\\.nuget\\packages\\moment.js\\2.27.0\\moment.js.2.27.0.nupkg.sha512",
     "C:\\Users\\iBoy\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\iBoy\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\iBoy\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",

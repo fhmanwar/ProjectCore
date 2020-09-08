@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Controllers;
 using API.Repository.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +16,7 @@ namespace API.Base
         where TEntity : class
         where TRepo : IRepo<TEntity>
     {
+        //DepartmentsController.U
         IRepo<TEntity> _repo;
         public BaseController(TRepo repo)
         {
@@ -37,16 +40,17 @@ namespace API.Base
             return BadRequest("Something Wrong! Please check again");
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult<int>> Update(TEntity entity)
-        {
-            var data = await _repo.Update(entity);
-            if (data.Equals(null))
-            {
-                return BadRequest("Something Wrong! Please check again");
-            }
-            return data;
-        }
+        //[HttpPut("{id}")]
+        //public async Task<ActionResult<int>> Update(int id, TEntity entity)
+        //{
+
+        //    var data = await _repo.Update(entity);
+        //    if (data.Equals(null))
+        //    {
+        //        return BadRequest("Something Wrong! Please check again");
+        //    }
+        //    return data;
+        //}
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<int>> Delete(int Id)
