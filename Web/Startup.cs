@@ -34,6 +34,10 @@ namespace Web
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSession();
+            //services.AddSession(options =>
+            //{
+            //    options.IdleTimeout = TimeSpan.FromMinutes(10);
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +49,7 @@ namespace Web
             }
             else
             {
-                app.UseStatusCodePagesWithRedirects("/home/about");
+                app.UseStatusCodePagesWithRedirects("/notfound");
                 //app.UseExceptionHandler("/Home/Error");
                 //app.UseHsts();
             }

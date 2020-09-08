@@ -236,33 +236,17 @@ namespace API.Controllers
                     //});
                     if (getUserRole != null)
                     {
-                        if (getUserRole.User.SecurityStamp != null)
-                        {
-                            var claims = new List<Claim> {
-                                new Claim("Id", getUserRole.User.Id),
-                                new Claim("Username", getUserRole.User.UserName),
-                                new Claim("Email", getUserRole.User.Email),
-                                new Claim("RoleName", getUserRole.Role.Name),
-                                new Claim("VerifyCode", getUserRole.User.SecurityStamp)
-                            };
-                            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-                            var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-                            var token = new JwtSecurityToken(_configuration["Jwt:Issuer"], _configuration["Jwt:Audience"], claims, expires: DateTime.UtcNow.AddDays(1), signingCredentials: signIn);
-                            return Ok(new JwtSecurityTokenHandler().WriteToken(token));
-                        }
-                        else
-                        {
-                            var claims = new List<Claim> {
-                                new Claim("Id", getUserRole.User.Id),
-                                new Claim("Username", getUserRole.User.UserName),
-                                new Claim("Email", getUserRole.User.Email),
-                                new Claim("RoleName", getUserRole.Role.Name)
-                            };
-                            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-                            var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-                            var token = new JwtSecurityToken(_configuration["Jwt:Issuer"], _configuration["Jwt:Audience"], claims, expires: DateTime.UtcNow.AddDays(1), signingCredentials: signIn);
-                            return Ok(new JwtSecurityTokenHandler().WriteToken(token));
-                        }
+                        var claims = new List<Claim> {
+                            new Claim("Id", getUserRole.User.Id),
+                            new Claim("Username", getUserRole.User.UserName),
+                            new Claim("Email", getUserRole.User.Email),
+                            new Claim("RoleName", getUserRole.Role.Name),
+                            new Claim("VerifyCode",true ? "" : getUserRole.User.SecurityStamp),
+                        };
+                        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+                        var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                        var token = new JwtSecurityToken(_configuration["Jwt:Issuer"], _configuration["Jwt:Audience"], claims, expires: DateTime.UtcNow.AddDays(1), signingCredentials: signIn);
+                        return Ok(new JwtSecurityTokenHandler().WriteToken(token));
                     }
                     return BadRequest("Invalid credentials");
                 }

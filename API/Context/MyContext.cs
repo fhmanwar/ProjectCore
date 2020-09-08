@@ -25,5 +25,7 @@ namespace API.Context
 
             //base.OnModelCreating(modelBuilder);
         }
+
+        public DbSet<Department> Departments { get; set; }
     }
 }

@@ -20,6 +20,7 @@ D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Web.TagHelpe
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Web.TagHelpers.output.cache
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Web.RazorCoreGenerate.cache
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Auth\Login.cshtml.g.cs
+D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Auth\NotFound.cshtml.g.cs
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Auth\Register.cshtml.g.cs
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Auth\Verify.cshtml.g.cs
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Index.cshtml.g.cs

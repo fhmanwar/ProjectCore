@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using API.Context;
 using API.Models;
+using API.Repository.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +34,7 @@ namespace API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("myConn")));
+            services.AddScoped<DepartmentRepo>();
 
             services.AddIdentityCore<User>().AddEntityFrameworkStores<MyContext>();
 
