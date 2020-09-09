@@ -1,4 +1,5 @@
 ﻿var arr = [];
+
 function Login() {
 	//debugger;
 	var validate = new Object();
@@ -13,7 +14,7 @@ function Login() {
 	}).then((result) => {
 		//debugger;
         if (result.status == true) {
-            if (result.msg == "Check your Code") {
+            if (result.msg == "VerifyCode") {
                 window.location.href = "/verify?mail=" + validate.Email;
             } else {
     			window.location.href = "/";
@@ -184,7 +185,8 @@ function Verify() {
     validate.VerifyCode = $('#Code').val();
     $.ajax({
         type: 'POST',
-        url: "/verifCode/",
+        //url: "/verifCode/",
+        url: "/validate/",
         cache: false,
         dataType: "JSON",
         data: validate

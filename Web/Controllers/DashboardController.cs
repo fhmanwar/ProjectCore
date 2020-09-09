@@ -13,13 +13,19 @@ namespace Web.Controllers
         {
             if (HttpContext.Session.IsAvailable)
             {
-                return View();
+                if (HttpContext.Session.GetString("lvl") == "Admin")
+                {
+                    return View();
+                }
+                return Redirect("/profile");
             }
-            //if (HttpContext.Session.GetString("lvl") == "Sales")
-            //{
-            //    return View();
-            //}
             return RedirectToAction("Login","Auth");
+        }
+
+        [Route("profile")]
+        public IActionResult Profile()
+        {
+            return View();
         }
     }
 }

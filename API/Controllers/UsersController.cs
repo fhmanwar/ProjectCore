@@ -181,7 +181,7 @@ namespace API.Controllers
             var getId = _context.Users.Find(id);
             _context.Users.Remove(getId);
             _context.SaveChanges();
-            return Ok("Successfully Delete");
+            return Ok(new { msg = "Successfully Delete" });
         }
 
 
@@ -191,10 +191,11 @@ namespace API.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.Create(userVM);
-                return Ok();
+                return Create(userVM);
+                //return Ok("Register Successfully");
+                //return BadRequest("Register Not Successfully");
             }
-            return BadRequest();
+            return BadRequest("Data Not Valid");
         }
 
         [HttpPost]
@@ -210,11 +211,11 @@ namespace API.Controllers
                 }
                 else if (userVM.Password == null || userVM.Password.Equals(""))
                 {
-                    return BadRequest(new { msg = "Password must filled" });
+                    return BadRequest("Password must filled");
                 }
                 else if (!Bcrypt.Verify(userVM.Password, getUserRole.User.PasswordHash))
                 {
-                    return BadRequest(new { msg = "Password is Wrong" });
+                    return BadRequest("Password is Wrong");
                 }
                 else
                 {
@@ -236,22 +237,23 @@ namespace API.Controllers
                     //});
                     if (getUserRole != null)
                     {
-                        var claims = new List<Claim> {
-                            new Claim("Id", getUserRole.User.Id),
-                            new Claim("Username", getUserRole.User.UserName),
-                            new Claim("Email", getUserRole.User.Email),
-                            new Claim("RoleName", getUserRole.Role.Name),
-                            new Claim("VerifyCode",true ? "" : getUserRole.User.SecurityStamp),
+                        var user = new UserVM()
+                        {
+                            Id = getUserRole.User.Id,
+                            Username = getUserRole.User.UserName,
+                            Email = getUserRole.User.Email,
+                            Password = getUserRole.User.PasswordHash,
+                            Phone = getUserRole.User.PhoneNumber,
+                            RoleID = getUserRole.Role.Id,
+                            RoleName = getUserRole.Role.Name,
+                            VerifyCode = getUserRole.User.SecurityStamp,
                         };
-                        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-                        var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-                        var token = new JwtSecurityToken(_configuration["Jwt:Issuer"], _configuration["Jwt:Audience"], claims, expires: DateTime.UtcNow.AddDays(1), signingCredentials: signIn);
-                        return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                        return Ok(GetJWT(user));
                     }
                     return BadRequest("Invalid credentials");
                 }
             }
-            return BadRequest(500);
+            return BadRequest("Data Not Valid");
         }
 
         [HttpPost]
@@ -267,32 +269,48 @@ namespace API.Controllers
                 }
                 else if (userVM.VerifyCode != getUserRole.User.SecurityStamp)
                 {
-                    return BadRequest(new { msg = "Your Code is Wrong" });
+                    return BadRequest("Your Code is Wrong" );
                 }
                 else
                 {
-                    //var user = new UserVM();
-                    //user.Id = getUserRole.User.Id;
-                    //user.Username = getUserRole.User.UserName;
-                    //user.Email = getUserRole.User.Email;
-                    //user.Password = getUserRole.User.PasswordHash;
-                    //user.Phone = getUserRole.User.PhoneNumber;
-                    //user.RoleName = getUserRole.Role.Name;
-                    //return StatusCode(200, user);
                     getUserRole.User.SecurityStamp = null;
                     _context.SaveChanges();
-                    return StatusCode(200, new
+                    var user = new UserVM()
                     {
                         Id = getUserRole.User.Id,
                         Username = getUserRole.User.UserName,
                         Email = getUserRole.User.Email,
+                        Password = getUserRole.User.PasswordHash,
+                        Phone = getUserRole.User.PhoneNumber,
+                        RoleID = getUserRole.Role.Id,
                         RoleName = getUserRole.Role.Name,
-                        //Email = getUserRole.User.Email,
-                        //Password = getUserRole.User.PasswordHash
-                    });
+                        VerifyCode = getUserRole.User.SecurityStamp,
+                    };
+                    return StatusCode(200, GetJWT(user));
                 }
             }
-            return BadRequest(500);
+            return BadRequest("Data Not Valid" );
+        }
+
+        private string GetJWT(UserVM userVM)
+        {
+            var claims = new List<Claim> {
+                            new Claim("Id", userVM.Id),
+                            new Claim("Username", userVM.Username),
+                            new Claim("Email", userVM.Email),
+                            new Claim("RoleName", userVM.RoleName),
+                            new Claim("VerifyCode", userVM.VerifyCode == null ? "" : userVM.VerifyCode),
+                        };
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                            _configuration["Jwt:Issuer"],
+                            _configuration["Jwt:Audience"],
+                            claims,
+                            expires: DateTime.UtcNow.AddDays(1),
+                            signingCredentials: signIn
+                        );
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
     }

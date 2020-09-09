@@ -37,6 +37,19 @@ namespace Web.Controllers
             return View();
         }
 
+        [Route("logout")]
+        public IActionResult Logout()
+        {
+            //var jwtauthmanager = new IJwtAuthManager();
+            //var userName = User.Identity.Name;
+            //_jwtAuthManager.RemoveRefreshTokenByUserName(userName); // can be more specific to ip, user agent, device name, etc.
+            //_logger.LogInformation($"User [{userName}] logged out the system.");
+
+            //HttpContext.Session.Remove("lvl");
+            HttpContext.Session.Clear();
+            return Redirect("/login");
+        }
+
         [Route("verify")]
         public IActionResult Verify()
         {
@@ -52,46 +65,39 @@ namespace Web.Controllers
         [Route("validate")]
         public IActionResult Validate(UserVM userVM)
         {
+            var json = JsonConvert.SerializeObject(userVM);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(json);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             if (userVM.Username == null)
             { // Login
-                var jsonUserVM = JsonConvert.SerializeObject(userVM);
-                var buffer = System.Text.Encoding.UTF8.GetBytes(jsonUserVM);
-                var byteContent = new ByteArrayContent(buffer);
-                byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                var resTask = client.PostAsync("users/login/", byteContent);
-                resTask.Wait();
-                var result = resTask.Result;
+                HttpResponseMessage result = null;
+                if (userVM.VerifyCode != null)
+                {
+                    result = client.PostAsync("users/code/", byteContent).Result;
+                }
+                else if (userVM.VerifyCode == null)
+                {
+                    result = client.PostAsync("users/login/", byteContent).Result;
+                }
+
                 if (result.IsSuccessStatusCode)
                 {
                     var data = result.Content.ReadAsStringAsync().Result;
                     if (data != null)
                     {
-                        HttpContext.Session.SetString("token", "Bearer "+data);
+                        HttpContext.Session.SetString("token", "Bearer " + data);
                         var handler = new JwtSecurityTokenHandler();
                         var tokenS = handler.ReadJwtToken(data);
-
-                        //var user = new UserVM();
-                        //user.Id = tokenS.Claims.First(claim => claim.Type == "Id").Value;
-                        //user.Username = tokenS.Claims.First(claim => claim.Type == "Username").Value;
-                        //user.Email = tokenS.Claims.First(claim => claim.Type == "Email").Value;
-                        //user.RoleName = tokenS.Claims.First(claim => claim.Type == "RoleName").Value;
-                        //user.VerifyCode = tokenS.Claims.First(claim => claim.Type == "VerifyCode").Value;
-
                         var jwtPayloadSer = JsonConvert.SerializeObject(tokenS.Payload.ToDictionary(x => x.Key, x => x.Value));
                         var jwtPayloadDes = JsonConvert.DeserializeObject(jwtPayloadSer).ToString();
                         var account = JsonConvert.DeserializeObject<UserVM>(jwtPayloadSer);
 
-                        //var json = JsonConvert.DeserializeObject(data).ToString();
-                        //var account = JsonConvert.DeserializeObject<UserVM>(json);
-                        //if (BC.Verify(userVM.Password, account.Password) && (account.RoleName == "Admin" || account.RoleName == "Sales"))
                         if (!account.VerifyCode.Equals(""))
                         {
-                            if (userVM.VerifyCode != account.VerifyCode)
-                            {
-                                return Json(new { status = true, msg = "Check your Code" });
-                            }
+                            return Json(new { status = true, msg = "VerifyCode" });
                         }
-                        else if (account.RoleName == "Admin" || account.RoleName == "Sales")
+                        else if (account.RoleName != null)
                         {
                             HttpContext.Session.SetString("id", account.Id);
                             HttpContext.Session.SetString("uname", account.Username);
@@ -99,129 +105,213 @@ namespace Web.Controllers
                             HttpContext.Session.SetString("lvl", account.RoleName);
                             if (account.RoleName == "Admin")
                             {
-                                return Json(new { status = true, msg = "Login Successfully !", acc = "Admin" });
+                                return Json(new { status = true, msg = "Login Successfully !" });
+                                //return View("~/Views/Auth/verify.cshtml");
                             }
-                            else
-                            {
-                                return Json(new { status = true, msg = "Login Successfully !", acc = "Sales" });
-                            }
+                            return Json(new { status = true, msg = "Login Successfully !" });
                         }
-                        else
-                        {
-                            return Json(new { status = false, msg = "Invalid Username or Password!" });
-                        }
+                        return Json(new { status = false, msg = "You Don't Have Permissions! Please Contact Administrator" });
                     }
-                    else
-                    {
-                        return Json(new { status = false, msg = "Username Not Found!" });
-                    }
+                    return Json(new { status = false, msg = result.Content.ReadAsStringAsync().Result });
                 }
-                else
-                {
-                    //return RedirectToAction("Login","Auth");
-                    return Json(new { status = false, msg = "Something Wrong!" });
-                }
+                return Json(new { status = false, msg = result.Content.ReadAsStringAsync().Result });
             }
             else if (userVM.Username != null)
             { // Register
-                var json = JsonConvert.SerializeObject(userVM);
-                var buffer = System.Text.Encoding.UTF8.GetBytes(json);
-                var byteContent = new ByteArrayContent(buffer);
-                byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 var result = client.PostAsync("users/register/", byteContent).Result;
                 if (result.IsSuccessStatusCode)
                 {
                     return Json(new { status = true, code = result, msg = "Register Success! " });
                 }
-                else
-                {
-                    return Json(new { status = false, msg = "Something Wrong!" });
-                }
+                return Json(new { status = false, msg = result.Content.ReadAsStringAsync().Result });
             }
             return Redirect("/login");
         }
 
-        [Route("verifCode")]
-        public IActionResult VerifCode(UserVM userVM)
-        {
-            if (userVM.VerifyCode != null)
-            {
-                var jsonUserVM = JsonConvert.SerializeObject(userVM);
-                var buffer = System.Text.Encoding.UTF8.GetBytes(jsonUserVM);
-                var byteContent = new ByteArrayContent(buffer);
-                byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                var result = client.PostAsync("users/code/", byteContent).Result;
-                if (result.IsSuccessStatusCode)
-                {
-                    var data = result.Content.ReadAsStringAsync().Result;
-                    if (data != "")
-                    {
-                        var json = JsonConvert.DeserializeObject(data).ToString();
-                        var account = JsonConvert.DeserializeObject<UserVM>(json);
-                        if (account.RoleName == "Admin" || account.RoleName == "Sales")
-                        {
-                            HttpContext.Session.SetString("id", account.Id);
-                            HttpContext.Session.SetString("uname", account.Username);
-                            HttpContext.Session.SetString("email", account.Email);
-                            HttpContext.Session.SetString("lvl", account.RoleName);
-                            if (account.RoleName == "Admin")
-                            {
-                                return Json(new { status = true, msg = "Login Successfully !", acc = "Admin" });
-                            }
-                            else
-                            {
-                                return Json(new { status = true, msg = "Login Successfully !", acc = "Sales" });
-                            }
-                        }
-                        else
-                        {
-                            return Json(new { status = false, msg = "Invalid Username or Password!" });
-                        }
-                    }
-                    else
-                    {
-                        return Json(new { status = false, msg = "Username Not Found!" });
-                    }
-                    //var data = result.Content.ReadAsStringAsync().Result;
-                    //var json = JsonConvert.DeserializeObject(data).ToString();
-                    //var account = JsonConvert.DeserializeObject<UserVM>(json);
-                    //var dataLogin = new UserVM()
-                    //{
-                    //    Email = account.Email,
-                    //    Password = account.Password
-                    //};
-                    //this.Validate(dataLogin);
-                    //return Json(new { status = true, code = result, msg = "Login Success! " });
-                }
-                else
-                {
-                    return Json(new { status = false, msg = "Your Code is Wrong!" });
-                }
-            }
-            else
-            {
-                return Json(new { status = false, msg = "Something Wrong!" });
-            }
-        }
+        //[Route("validate")]
+        //public IActionResult Validate(UserVM userVM)
+        //{
+        //    //var jsonUserVM = JsonConvert.SerializeObject(userVM);
+        //    //var buffer = System.Text.Encoding.UTF8.GetBytes(jsonUserVM);
+        //    //var byteContent = new ByteArrayContent(buffer);
+        //    //byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-        [Route("logout")]
-        public IActionResult Logout()
-        {
-            //var jwtauthmanager = new IJwtAuthManager();
-            //var userName = User.Identity.Name;
-            //_jwtAuthManager.RemoveRefreshTokenByUserName(userName); // can be more specific to ip, user agent, device name, etc.
-            //_logger.LogInformation($"User [{userName}] logged out the system.");
+        //    var json = JsonConvert.SerializeObject(userVM);
+        //    var buffer = System.Text.Encoding.UTF8.GetBytes(json);
+        //    var byteContent = new ByteArrayContent(buffer);
+        //    byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        //    if (userVM.VerifyCode != null)
+        //    {
+        //        var result = client.PostAsync("users/code/", byteContent).Result;
+        //        if (result.IsSuccessStatusCode)
+        //        {
+        //            var data = result.Content.ReadAsStringAsync().Result;
+        //            if (data != "")
+        //            {
+        //                var jsonCode = JsonConvert.DeserializeObject(data).ToString();
+        //                var account = JsonConvert.DeserializeObject<UserVM>(jsonCode);
+        //                if (account.RoleName == "Admin" || account.RoleName == "Sales")
+        //                {
+        //                    HttpContext.Session.SetString("id", account.Id);
+        //                    HttpContext.Session.SetString("uname", account.Username);
+        //                    HttpContext.Session.SetString("email", account.Email);
+        //                    HttpContext.Session.SetString("lvl", account.RoleName);
+        //                    if (account.RoleName == "Admin")
+        //                    {
+        //                        return Json(new { status = true, msg = "Login Successfully !", acc = "Admin" });
+        //                    }
+        //                    else
+        //                    {
+        //                        return Json(new { status = true, msg = "Login Successfully !", acc = "Sales" });
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    return Json(new { status = false, msg = "Invalid Username or Password!" });
+        //                }
+        //            }
+        //            else
+        //            {
+        //                return Json(new { status = false, msg = "Username Not Found!" });
+        //            }
+        //        }
+        //        else
+        //        {
+        //            return Json(new { status = false, msg = "Your Code is Wrong!" });
+        //        }
+        //        //return Json(new { status = false, msg = "Something Wrong!" });
+        //    }
+        //    else if (userVM.Username == null)
+        //    { // Login
+        //        var resTask = client.PostAsync("users/login/", byteContent);
+        //        resTask.Wait();
+        //        var result = resTask.Result;
+        //        if (result.IsSuccessStatusCode)
+        //        {
+        //            var data = result.Content.ReadAsStringAsync().Result;
+        //            if (data != null)
+        //            {
+        //                HttpContext.Session.SetString("token", "Bearer "+data);
+        //                var handler = new JwtSecurityTokenHandler();
+        //                var tokenS = handler.ReadJwtToken(data);
 
-            //HttpContext.Session.Remove("lvl");
-            HttpContext.Session.Clear();
+        //                //var user = new UserVM();
+        //                //user.Id = tokenS.Claims.First(claim => claim.Type == "Id").Value;
+        //                //user.Username = tokenS.Claims.First(claim => claim.Type == "Username").Value;
+        //                //user.Email = tokenS.Claims.First(claim => claim.Type == "Email").Value;
+        //                //user.RoleName = tokenS.Claims.First(claim => claim.Type == "RoleName").Value;
+        //                //user.VerifyCode = tokenS.Claims.First(claim => claim.Type == "VerifyCode").Value;
 
+        //                var jwtPayloadSer = JsonConvert.SerializeObject(tokenS.Payload.ToDictionary(x => x.Key, x => x.Value));
+        //                var jwtPayloadDes = JsonConvert.DeserializeObject(jwtPayloadSer).ToString();
+        //                var account = JsonConvert.DeserializeObject<UserVM>(jwtPayloadSer);
 
-            //HttpContext.Session.Abandon();
-            //HttpContext.Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
-            return Redirect("/login");
-        }
+        //                //var json = JsonConvert.DeserializeObject(data).ToString();
+        //                //var account = JsonConvert.DeserializeObject<UserVM>(json);
+        //                if (!account.VerifyCode.Equals(""))
+        //                {
+        //                    //if (userVM.VerifyCode != account.VerifyCode)
+        //                    //{
+        //                    //    return Json(new { status = true, msg = "Check your Code" });
+        //                    //}
+        //                    return Json(new { status = true, msg = "VerifyCode" });
+        //                }
+        //                //else if (account.RoleName == "Admin" || account.RoleName == "Sales")
+        //                else if (account.RoleName != null)
+        //                {
+        //                    HttpContext.Session.SetString("id", account.Id);
+        //                    HttpContext.Session.SetString("uname", account.Username);
+        //                    HttpContext.Session.SetString("email", account.Email);
+        //                    HttpContext.Session.SetString("lvl", account.RoleName);
+        //                    if (account.RoleName == "Admin")
+        //                    {
+        //                        //return Json(new { status = true, msg = "Login Successfully !" });
+        //                        return View("~/Views/Auth/verify.cshtml");
+        //                    }
+        //                    return Json(new { status = true, msg = "Login Successfully !" });
+        //                }
+        //                return Json(new { status = false, msg = "You Don't Have Permissions! Please Contact Administrator" });
+        //            }
+        //            return Json(new { status = false, msg = "Something Wrong! your Email NotFound" });
+        //        }
+        //        return Json(new { status = false, msg = "Invalid Email or Password!" });
+        //    }
+        //    else if (userVM.Username != null)
+        //    { // Register
+        //        var result = client.PostAsync("users/register/", byteContent).Result;
+        //        if (result.IsSuccessStatusCode)
+        //        {
+        //            return Json(new { status = true, code = result, msg = "Register Success! " });
+        //        }
+        //        return Json(new { status = false, msg = "Something Wrong!" });
+        //    }
+        //    return Redirect("/login");
+        //}
 
-        [Route("getjwt")]
+        //[Route("verifCode")]
+        //public IActionResult VerifCode(UserVM userVM)
+        //{
+        //    if (userVM.VerifyCode != null)
+        //    {
+        //        var jsonUserVM = JsonConvert.SerializeObject(userVM);
+        //        var buffer = System.Text.Encoding.UTF8.GetBytes(jsonUserVM);
+        //        var byteContent = new ByteArrayContent(buffer);
+        //        byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        //        var result = client.PostAsync("users/code/", byteContent).Result;
+        //        if (result.IsSuccessStatusCode)
+        //        {
+        //            var data = result.Content.ReadAsStringAsync().Result;
+        //            if (data != "")
+        //            {
+        //                var json = JsonConvert.DeserializeObject(data).ToString();
+        //                var account = JsonConvert.DeserializeObject<UserVM>(json);
+        //                if (account.RoleName == "Admin" || account.RoleName == "Sales")
+        //                {
+        //                    HttpContext.Session.SetString("id", account.Id);
+        //                    HttpContext.Session.SetString("uname", account.Username);
+        //                    HttpContext.Session.SetString("email", account.Email);
+        //                    HttpContext.Session.SetString("lvl", account.RoleName);
+        //                    if (account.RoleName == "Admin")
+        //                    {
+        //                        return Json(new { status = true, msg = "Login Successfully !", acc = "Admin" });
+        //                    }
+        //                    else
+        //                    {
+        //                        return Json(new { status = true, msg = "Login Successfully !", acc = "Sales" });
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    return Json(new { status = false, msg = "Invalid Username or Password!" });
+        //                }
+        //            }
+        //            else
+        //            {
+        //                return Json(new { status = false, msg = "Username Not Found!" });
+        //            }
+        //            //var data = result.Content.ReadAsStringAsync().Result;
+        //            //var json = JsonConvert.DeserializeObject(data).ToString();
+        //            //var account = JsonConvert.DeserializeObject<UserVM>(json);
+        //            //var dataLogin = new UserVM()
+        //            //{
+        //            //    Email = account.Email,
+        //            //    Password = account.Password
+        //            //};
+        //            //this.Validate(dataLogin);
+        //            //return Json(new { status = true, code = result, msg = "Login Success! " });
+        //        }
+        //        else
+        //        {
+        //            return Json(new { status = false, msg = "Your Code is Wrong!" });
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return Json(new { status = false, msg = "Something Wrong!" });
+        //    }
+        //}
+
+        [Route("tes")]
         public IActionResult GetName()
         {
             var stream = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6ImRiM2VhZmIxLTkyMWUtNDdmYS1hOGFiLTIwNDYxMzkxM2FlMCIsIlVzZXJuYW1lIjoiUmlmcXkiLCJFbWFpbCI6Im11aGFtbWFkcmlmcWkwQGdtYWlsLmNvbSIsIlJvbGVOYW1lIjoiU2FsZXMiLCJWZXJpZnlDb2RlIjoiIiwiZXhwIjoxNTk5NjEyMTYyLCJpc3MiOiJJbnZlbnRvcnlBdXRoZW50aWNhdGlvblNlcnZlciIsImF1ZCI6IkludmVudG9yeXNlcnZpY2VQb3N0bWFudENsaWVudCJ9.UxXzeuzWB8sRuy11Hd1LSzE_oUC7EQ_Ehh4WQMflYXA";
@@ -257,5 +347,7 @@ namespace Web.Controllers
             // Output the whole thing to pretty Json object formatted.
             return Json(new { account.Id, account.Username, account.Email, account.RoleName, account.VerifyCode } );
         }
+
+
     }
 }

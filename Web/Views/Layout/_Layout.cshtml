@@ -8,7 +8,6 @@
     if (uname == null)
     {
         Context.Response.Redirect("/login");
-
     }
 }
 
@@ -63,13 +62,39 @@
                 </a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+            @if (level == "Admin")
+            {
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
+<<<<<<< Updated upstream
             <!-- Heading -->
             <div class="sidebar-heading">
                 Addons
             </div>
+=======
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Features
+                </div>
+
+                <!-- Nav Item - Tables -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/departments">
+                        <i class="fas fa-fw fa-building"></i>
+                        <span>Department</span>
+                    </a>
+                </li>
+
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/divisions">
+                        <i class="fas fa-fw fa-landmark"></i>
+                        <span>Division</span>
+                    </a>
+                </li>
+            }
+>>>>>>> Stashed changes
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -88,6 +113,7 @@
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
+<<<<<<< Updated upstream
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
@@ -122,6 +148,26 @@
                     <span>Tables</span>
                 </a>
             </li>
+=======
+            @*<li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Pages</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Login Screens:</h6>
+                    <a class="collapse-item" href="#">Login</a>
+                    <a class="collapse-item" href="#">Register</a>
+                    <a class="collapse-item" href="#">Forgot Password</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Other Pages:</h6>
+                    <a class="collapse-item" href="#">404 Page</a>
+                    <a class="collapse-item" href="#">Blank Page</a>
+                </div>
+            </div>
+        </li>*@
+>>>>>>> Stashed changes
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -215,11 +261,15 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">@ViewData["Title"]</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
+                    @if(level != "Admin")
+                    {
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">@ViewData["Title"]</h1>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        </div>
+                    }
+
 
                     @RenderBody()
 

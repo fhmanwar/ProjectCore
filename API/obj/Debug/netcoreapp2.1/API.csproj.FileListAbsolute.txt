@@ -16,3 +16,4 @@ D:\MII\MIICC\#14-MateriCore\ProjectCore\API\obj\Debug\netcoreapp2.1\API.RazorTar
 D:\MII\MIICC\#14-MateriCore\ProjectCore\API\obj\Debug\netcoreapp2.1\API.dll
 D:\MII\MIICC\#14-MateriCore\ProjectCore\API\obj\Debug\netcoreapp2.1\API.pdb
 D:\MII\MIICC\#14-MateriCore\ProjectCore\API\obj\Debug\netcoreapp2.1\API.genruntimeconfig.cache
+D:\MII\MIICC\#14-MateriCore\ProjectCore\API\obj\Debug\netcoreapp2.1\API.csprojAssemblyReference.cache

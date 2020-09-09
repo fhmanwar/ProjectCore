@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using API.Models;
+using API.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace Web.Controllers
 {
-    public class DepartmentsController : Controller
+    public class DivisionsController : Controller
     {
         readonly HttpClient client = new HttpClient
         {
@@ -23,75 +24,75 @@ namespace Web.Controllers
         {
             if (HttpContext.Session.GetString("lvl") == "Admin")
             {
-                return View("~/Views/Dashboard/Department.cshtml");
+                return View("~/Views/Dashboard/Division.cshtml");
             }
             return Redirect("/notfound");
         }
 
-        public IActionResult LoadDepart()
+        public IActionResult LoadDiv()
         {
-            IEnumerable<Department> departments = null;
+            IEnumerable<Division> division = null;
             var token = HttpContext.Session.GetString("token");
             client.DefaultRequestHeaders.Add("Authorization", token);
-            var resTask = client.GetAsync("departments");
+            var resTask = client.GetAsync("divisions");
             resTask.Wait();
 
             var result = resTask.Result;
             if (result.IsSuccessStatusCode)
             {
-                var readTask = result.Content.ReadAsAsync<List<Department>>();
+                var readTask = result.Content.ReadAsAsync<List<Division>>();
                 readTask.Wait();
-                departments = readTask.Result;
+                division = readTask.Result;
             }
             else
             {
-                departments = Enumerable.Empty<Department>();
+                division = Enumerable.Empty<Division>();
                 ModelState.AddModelError(string.Empty, "Server Error try after sometimes.");
             }
-            return Json(departments);
+            return Json(division);
 
         }
 
         public IActionResult GetById(int Id)
         {
-            Department departments = null;
+            Division division = null;
             var token = HttpContext.Session.GetString("token");
             client.DefaultRequestHeaders.Add("Authorization", token);
-            var resTask = client.GetAsync("departments/" + Id);
+            var resTask = client.GetAsync("divisions/" + Id);
             resTask.Wait();
 
             var result = resTask.Result;
             if (result.IsSuccessStatusCode)
             {
                 var json = JsonConvert.DeserializeObject(result.Content.ReadAsStringAsync().Result).ToString();
-                departments = JsonConvert.DeserializeObject<Department>(json);
+                division = JsonConvert.DeserializeObject<Division>(json);
             }
             else
             {
                 ModelState.AddModelError(string.Empty, "Server Error.");
             }
-            return Json(departments);
+            return Json(division);
         }
 
-        public IActionResult InsertOrUpdate(Department departments, int id)
+        public IActionResult InsertOrUpdate(Division data, int id)
         {
             try
             {
-                var json = JsonConvert.SerializeObject(departments);
+                var json = JsonConvert.SerializeObject(data);
                 var buffer = System.Text.Encoding.UTF8.GetBytes(json);
                 var byteContent = new ByteArrayContent(buffer);
                 byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
                 var token = HttpContext.Session.GetString("token");
                 client.DefaultRequestHeaders.Add("Authorization", token);
-                if (departments.Id == 0)
+                if (data.Id == 0)
                 {
-                    var result = client.PostAsync("departments", byteContent).Result;
+                    var result = client.PostAsync("divisions", byteContent).Result;
                     return Json(result);
                 }
-                else if (departments.Id == id)
+                else if (data.Id == id)
                 {
-                    var result = client.PutAsync("departments/" + id, byteContent).Result;
+                    var result = client.PutAsync("divisions/" + id, byteContent).Result;
                     return Json(result);
                 }
 
@@ -107,7 +108,7 @@ namespace Web.Controllers
         {
             var token = HttpContext.Session.GetString("token");
             client.DefaultRequestHeaders.Add("Authorization", token);
-            var result = client.DeleteAsync("departments/" + id).Result;
+            var result = client.DeleteAsync("divisions/" + id).Result;
             return Json(result);
         }
     }
