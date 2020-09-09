@@ -48,4 +48,7 @@ D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Web.genrunti
 =======
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Division.cshtml.g.cs
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Profile.cshtml.g.cs
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

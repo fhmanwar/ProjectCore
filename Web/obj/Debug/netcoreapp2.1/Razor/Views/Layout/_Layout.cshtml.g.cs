@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #pragma checksum "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "7e148587bed71727e13d92a3c8cfd63301434748"
+=======
+#pragma checksum "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "9bd0b487a0742bffb81513342568aa98b3793522"
+>>>>>>> Stashed changes
 =======
 #pragma checksum "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "9bd0b487a0742bffb81513342568aa98b3793522"
 >>>>>>> Stashed changes
@@ -33,7 +37,11 @@ using Microsoft.AspNetCore.Http;
 #line default
 #line hidden
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7e148587bed71727e13d92a3c8cfd63301434748", @"/Views/Layout/_Layout.cshtml")]
+=======
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9bd0b487a0742bffb81513342568aa98b3793522", @"/Views/Layout/_Layout.cshtml")]
+>>>>>>> Stashed changes
 =======
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9bd0b487a0742bffb81513342568aa98b3793522", @"/Views/Layout/_Layout.cshtml")]
 >>>>>>> Stashed changes
@@ -44,6 +52,7 @@ using Microsoft.AspNetCore.Http;
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("rel", new global::Microsoft.AspNetCore.Html.HtmlString("stylesheet"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_2 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/css/dataTables.bootstrap4.min.css"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_3 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/css/sb-admin-2.min.css"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_4 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_5 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("form-inline mr-auto w-100 navbar-search"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -57,6 +66,8 @@ using Microsoft.AspNetCore.Http;
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_13 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/sb-admin-2.min.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_14 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("id", new global::Microsoft.AspNetCore.Html.HtmlString("page-top"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 =======
+=======
+>>>>>>> Stashed changes
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_4 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/jquery.min.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_5 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/bootstrap.bundle.min.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_6 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/jquery.easing.min.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -67,6 +78,9 @@ using Microsoft.AspNetCore.Http;
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_11 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/sweetalert2@9.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_12 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/sb-admin-2.min.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_13 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("id", new global::Microsoft.AspNetCore.Html.HtmlString("page-top"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         #line hidden
         #pragma warning disable 0169
@@ -110,9 +124,15 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n");
             EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             BeginContext(375, 833, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b7dddb7ce67d446e9f6f5be3d1725b12", async() => {
                 BeginContext(381, 357, true);
+=======
+            BeginContext(373, 844, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "911e43a4163b4173bb43c0b2dc772c20", async() => {
+                BeginContext(379, 275, true);
+>>>>>>> Stashed changes
 =======
             BeginContext(373, 844, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "911e43a4163b4173bb43c0b2dc772c20", async() => {
@@ -139,8 +159,13 @@ using Microsoft.AspNetCore.Http;
                 WriteLiteral(" | Project Core</title>\r\n\r\n    <!-- Custom fonts for this template-->\r\n    ");
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(738, 63, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f87d6b895b2946ebb6ef898454be1733", async() => {
+=======
+                BeginContext(747, 63, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "47ac20720d944f36a52cc3d46589ed4f", async() => {
+>>>>>>> Stashed changes
 =======
                 BeginContext(747, 63, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "47ac20720d944f36a52cc3d46589ed4f", async() => {
@@ -166,8 +191,13 @@ using Microsoft.AspNetCore.Http;
                 WriteLiteral("    ");
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(1021, 68, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "79e2ce737cbb4d5783ad3457ef49c728", async() => {
+=======
+                BeginContext(1030, 68, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b167d4a177bf4c32aff3ae072cb397bd", async() => {
+>>>>>>> Stashed changes
 =======
                 BeginContext(1030, 68, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b167d4a177bf4c32aff3ae072cb397bd", async() => {
@@ -190,8 +220,13 @@ using Microsoft.AspNetCore.Http;
                 WriteLiteral("\r\n    <!-- Custom styles for this template-->\r\n    ");
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(1140, 57, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b51037f414bd4213b237f73a07233faa", async() => {
+=======
+                BeginContext(1149, 57, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5dd37567a4a944f7a7373cb510a665cc", async() => {
+>>>>>>> Stashed changes
 =======
                 BeginContext(1149, 57, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5dd37567a4a944f7a7373cb510a665cc", async() => {
@@ -229,9 +264,15 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("\r\n\r\n");
             EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             BeginContext(1212, 10862, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2fc0c271bb244090bcaaecf497d0fe05", async() => {
                 BeginContext(1232, 4806, true);
+=======
+            BeginContext(1221, 10259, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "11c64176b63a4e7d9e2be9e8c1b5a5ba", async() => {
+                BeginContext(1241, 476, true);
+>>>>>>> Stashed changes
 =======
             BeginContext(1221, 10259, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "11c64176b63a4e7d9e2be9e8c1b5a5ba", async() => {
@@ -268,6 +309,7 @@ using Microsoft.AspNetCore.Http;
             </li>
 
 ");
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                 WriteLiteral(@"            <!-- Heading -->
             <div class=""sidebar-heading"">
@@ -333,6 +375,13 @@ using Microsoft.AspNetCore.Http;
              if (level == "Admin")
             {
 
+=======
+                EndContext();
+#line 66 "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml"
+             if (level == "Admin")
+            {
+
+>>>>>>> Stashed changes
 #line default
 #line hidden
                 BeginContext(2310, 80, true);
@@ -363,6 +412,9 @@ using Microsoft.AspNetCore.Http;
                 EndContext();
 #line 91 "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml"
             }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 #line default
@@ -378,9 +430,12 @@ using Microsoft.AspNetCore.Http;
             <!-- Sidebar Toggler (Sidebar) -->
             <div class=""text-center d-none d-md-inline"">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 <button class=""rounded-circle border-0"" id=");
                 WriteLiteral(@"""sidebarToggle""></button>
 =======
+=======
+>>>>>>> Stashed changes
                 <button class=""rounded-circle border-0"" id=""sidebarToggle""></button>
 >>>>>>> Stashed changes
             </div>
@@ -402,6 +457,7 @@ using Microsoft.AspNetCore.Http;
                     </button>
 
                     <!-- Topbar Search -->
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                     ");
                 EndContext();
@@ -440,6 +496,11 @@ using Microsoft.AspNetCore.Http;
                 EndContext();
                 BeginContext(5952, 2059, true);
 >>>>>>> Stashed changes
+=======
+");
+                EndContext();
+                BeginContext(5952, 2059, true);
+>>>>>>> Stashed changes
                 WriteLiteral(@"
                     <!-- Topbar Navbar -->
                     <ul class=""navbar-nav ml-auto"">
@@ -451,6 +512,7 @@ using Microsoft.AspNetCore.Http;
                             </a>-->
                             <!-- Dropdown - Messages -->
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                             <div class=""dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"" aria-labelledby=""searchDropdown"">
                                 ");
                 EndContext();
@@ -458,6 +520,10 @@ using Microsoft.AspNetCore.Http;
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "910b8459f0f94c23a86aa60cbc56b043", async() => {
                     BeginContext(7537, 681, true);
                     WriteLiteral(@"
+=======
+                            <!--<div class=""dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"" aria-labelledby=""searchDropdown"">
+                                <form class=""form-inline mr-auto w-100 navbar-search"">
+>>>>>>> Stashed changes
 =======
                             <!--<div class=""dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"" aria-labelledby=""searchDropdown"">
                                 <form class=""form-inline mr-auto w-100 navbar-search"">
@@ -471,6 +537,7 @@ using Microsoft.AspNetCore.Http;
                                             </button>
                                         </div>
                                     </div>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                                 ");
                     EndContext();
@@ -494,6 +561,9 @@ using Microsoft.AspNetCore.Http;
 =======
                                 </form>
 >>>>>>> Stashed changes
+=======
+                                </form>
+>>>>>>> Stashed changes
                             </div>
                         </li>-->
 
@@ -506,8 +576,13 @@ using Microsoft.AspNetCore.Http;
                 WriteLiteral("600 small\">");
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(8767, 5, false);
 #line 190 "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml"
+=======
+                BeginContext(8012, 5, false);
+#line 177 "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml"
+>>>>>>> Stashed changes
 =======
                 BeginContext(8012, 5, false);
 #line 177 "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml"
@@ -518,7 +593,11 @@ using Microsoft.AspNetCore.Http;
 #line hidden
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(8772, 1647, true);
+=======
+                BeginContext(8017, 1453, true);
+>>>>>>> Stashed changes
 =======
                 BeginContext(8017, 1453, true);
 >>>>>>> Stashed changes
@@ -554,9 +633,15 @@ using Microsoft.AspNetCore.Http;
 ");
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(10420, 17, false);
 #line 220 "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml"
                                                      Write(ViewData["Title"]);
+=======
+#line 205 "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml"
+                     if(level != "Admin")
+                    {
+>>>>>>> Stashed changes
 =======
 #line 205 "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml"
                      if(level != "Admin")
@@ -568,6 +653,7 @@ using Microsoft.AspNetCore.Http;
                 BeginContext(9536, 206, true);
                 WriteLiteral("                        <!-- Page Heading -->\r\n                        <div class=\"d-sm-flex align-items-center justify-content-between mb-4\">\r\n                            <h1 class=\"h3 mb-0 text-gray-800\">");
                 EndContext();
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                 BeginContext(10437, 232, true);
                 WriteLiteral("</h1>\r\n                        <a href=\"#\" class=\"d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm\"><i class=\"fas fa-download fa-sm text-white-50\"></i> Generate Report</a>\r\n                    </div>\r\n\r\n                    ");
@@ -582,6 +668,15 @@ using Microsoft.AspNetCore.Http;
 #line default
 #line hidden
                 EndContext();
+=======
+                BeginContext(9743, 17, false);
+#line 209 "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml"
+                                                         Write(ViewData["Title"]);
+
+#line default
+#line hidden
+                EndContext();
+>>>>>>> Stashed changes
                 BeginContext(9760, 218, true);
                 WriteLiteral("</h1>\r\n                            <a href=\"#\" class=\"d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm\"><i class=\"fas fa-download fa-sm text-white-50\"></i> Generate Report</a>\r\n                        </div>\r\n");
                 EndContext();
@@ -595,6 +690,9 @@ using Microsoft.AspNetCore.Http;
                 EndContext();
                 BeginContext(10026, 12, false);
 #line 215 "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                Write(RenderBody());
 
@@ -602,7 +700,11 @@ using Microsoft.AspNetCore.Http;
 #line hidden
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(10682, 813, true);
+=======
+                BeginContext(10038, 813, true);
+>>>>>>> Stashed changes
 =======
                 BeginContext(10038, 813, true);
 >>>>>>> Stashed changes
@@ -639,8 +741,13 @@ using Microsoft.AspNetCore.Http;
     ");
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(11495, 42, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5547f6ffe5b2472f9d8b77bfaed7627d", async() => {
+=======
+                BeginContext(10851, 42, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "39b0a89723e04ddfa1c414bbd88eac2f", async() => {
+>>>>>>> Stashed changes
 =======
                 BeginContext(10851, 42, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "39b0a89723e04ddfa1c414bbd88eac2f", async() => {
@@ -659,11 +766,19 @@ using Microsoft.AspNetCore.Http;
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(11537, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(11543, 52, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8fed837e7c064bcb8d103046519a28fd", async() => {
+=======
+                BeginContext(10893, 6, true);
+                WriteLiteral("\r\n    ");
+                EndContext();
+                BeginContext(10899, 52, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57411bd3e5b841a194e2e937c9a568c0", async() => {
+>>>>>>> Stashed changes
 =======
                 BeginContext(10893, 6, true);
                 WriteLiteral("\r\n    ");
@@ -685,17 +800,23 @@ using Microsoft.AspNetCore.Http;
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(11595, 44, true);
                 WriteLiteral("\r\n\r\n    <!-- Core plugin JavaScript-->\r\n    ");
                 EndContext();
                 BeginContext(11639, 49, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "76247c97e5fa4807a978d6623bd3b1ff", async() => {
 =======
+=======
+>>>>>>> Stashed changes
                 BeginContext(10951, 44, true);
                 WriteLiteral("\r\n\r\n    <!-- Core plugin JavaScript-->\r\n    ");
                 EndContext();
                 BeginContext(10995, 49, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5b560943476b44eb808d095c5cca0024", async() => {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 }
                 );
@@ -711,11 +832,19 @@ using Microsoft.AspNetCore.Http;
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(11688, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(11694, 52, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "755250741baa499197cca092faecd0f0", async() => {
+=======
+                BeginContext(11044, 6, true);
+                WriteLiteral("\r\n    ");
+                EndContext();
+                BeginContext(11050, 52, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b1e1330673f45bebed71d2f01feccd8", async() => {
+>>>>>>> Stashed changes
 =======
                 BeginContext(11044, 6, true);
                 WriteLiteral("\r\n    ");
@@ -737,17 +866,23 @@ using Microsoft.AspNetCore.Http;
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(11746, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(11752, 53, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f40ffdd1b554d058260140778f58cb3", async() => {
 =======
+=======
+>>>>>>> Stashed changes
                 BeginContext(11102, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(11108, 53, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2f2a18b0e8cc447e8e8f0d86b1cf8a06", async() => {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 }
                 );
@@ -763,11 +898,19 @@ using Microsoft.AspNetCore.Http;
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(11805, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(11811, 57, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b886cd66425149f3830c013c1dcae106", async() => {
+=======
+                BeginContext(11161, 6, true);
+                WriteLiteral("\r\n    ");
+                EndContext();
+                BeginContext(11167, 57, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b1bc810f775463fb78368a1f3bac214", async() => {
+>>>>>>> Stashed changes
 =======
                 BeginContext(11161, 6, true);
                 WriteLiteral("\r\n    ");
@@ -789,12 +932,15 @@ using Microsoft.AspNetCore.Http;
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(11868, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(11874, 45, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "64383ab2f77642a1be87795cf7d41321", async() => {
 =======
+=======
+>>>>>>> Stashed changes
                 BeginContext(11224, 8, true);
                 WriteLiteral("\r\n\r\n    ");
                 EndContext();
@@ -818,13 +964,20 @@ using Microsoft.AspNetCore.Http;
                 EndContext();
                 BeginContext(11280, 45, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d5e57af644184da6af5ff50e54883865", async() => {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_12);
+=======
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_11);
+>>>>>>> Stashed changes
 =======
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_11);
 >>>>>>> Stashed changes
@@ -836,6 +989,7 @@ using Microsoft.AspNetCore.Http;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                 BeginContext(11919, 50, true);
                 WriteLiteral("\r\n\r\n    <!-- Custom scripts for all pages-->\r\n    ");
@@ -849,12 +1003,23 @@ using Microsoft.AspNetCore.Http;
                 BeginContext(11375, 46, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "496e30b595064b88ace00ba01449fa97", async() => {
 >>>>>>> Stashed changes
+=======
+                BeginContext(11325, 50, true);
+                WriteLiteral("\r\n\r\n    <!-- Custom scripts for all pages-->\r\n    ");
+                EndContext();
+                BeginContext(11375, 46, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "496e30b595064b88ace00ba01449fa97", async() => {
+>>>>>>> Stashed changes
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_13);
+=======
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_12);
+>>>>>>> Stashed changes
 =======
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_12);
 >>>>>>> Stashed changes
@@ -867,17 +1032,23 @@ using Microsoft.AspNetCore.Http;
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(12015, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(12022, 41, false);
 #line 266 "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml"
 =======
+=======
+>>>>>>> Stashed changes
                 BeginContext(11421, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(11428, 41, false);
 #line 259 "D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\Views\Layout\_Layout.cshtml"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 Write(RenderSection("Scripts", required: false));
 
@@ -885,7 +1056,11 @@ Write(RenderSection("Scripts", required: false));
 #line hidden
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(12063, 4, true);
+=======
+                BeginContext(11469, 4, true);
+>>>>>>> Stashed changes
 =======
                 BeginContext(11469, 4, true);
 >>>>>>> Stashed changes
@@ -896,7 +1071,11 @@ Write(RenderSection("Scripts", required: false));
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper>();
             __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_14);
+=======
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_13);
+>>>>>>> Stashed changes
 =======
             __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_13);
 >>>>>>> Stashed changes
@@ -909,7 +1088,11 @@ Write(RenderSection("Scripts", required: false));
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             BeginContext(12074, 13, true);
+=======
+            BeginContext(11480, 13, true);
+>>>>>>> Stashed changes
 =======
             BeginContext(11480, 13, true);
 >>>>>>> Stashed changes

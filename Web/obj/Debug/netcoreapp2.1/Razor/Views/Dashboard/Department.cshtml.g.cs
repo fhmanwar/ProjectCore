@@ -92,9 +92,15 @@ using Web.Models;
                         ");
             EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             BeginContext(1411, 632, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b47e38332c143e295a7c522b179bac3", async() => {
                 BeginContext(1417, 619, true);
+=======
+            BeginContext(1411, 654, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b61fa8812bfa48909d1df5ba882def0c", async() => {
+                BeginContext(1417, 641, true);
+>>>>>>> Stashed changes
 =======
             BeginContext(1411, 654, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b61fa8812bfa48909d1df5ba882def0c", async() => {
@@ -156,8 +162,13 @@ using Web.Models;
                 WriteLiteral("\r\n    ");
                 EndContext();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 BeginContext(3193, 51, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "11859c0d96ca440b955218b6607cad38", async() => {
+=======
+                BeginContext(3215, 51, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "00630e601c85487988edd11257b47e75", async() => {
+>>>>>>> Stashed changes
 =======
                 BeginContext(3215, 51, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "00630e601c85487988edd11257b47e75", async() => {

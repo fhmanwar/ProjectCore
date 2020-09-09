@@ -92,7 +92,11 @@ using Web.Models;
             EndContext();
             BeginContext(25, 832, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ca0769fb8bf4f8aa63aa2c6367d2f53", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47862315e1904d768f33f7ad06a890bf", async() => {
+>>>>>>> Stashed changes
 =======
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47862315e1904d768f33f7ad06a890bf", async() => {
 >>>>>>> Stashed changes
@@ -111,7 +115,11 @@ using Web.Models;
                 EndContext();
                 BeginContext(192, 193, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "667e6c87c04143b786be6180076d2f7a", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43458ac203c445cfae41ab74edfac785", async() => {
+>>>>>>> Stashed changes
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43458ac203c445cfae41ab74edfac785", async() => {
 >>>>>>> Stashed changes
@@ -120,7 +128,11 @@ using Web.Models;
                     EndContext();
                     BeginContext(237, 71, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "50773375fe314bed8d2de6ae30aabfb6", async() => {
+=======
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "bd218bb01f8b42099375993632b52bbe", async() => {
+>>>>>>> Stashed changes
 =======
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "bd218bb01f8b42099375993632b52bbe", async() => {
 >>>>>>> Stashed changes
@@ -143,7 +155,11 @@ using Web.Models;
                     EndContext();
                     BeginContext(318, 47, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "16e53824a57f43218cc34a3ccdb7c55b", async() => {
+=======
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b97e612630e44ef9b7d5f4fb37065132", async() => {
+>>>>>>> Stashed changes
 =======
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b97e612630e44ef9b7d5f4fb37065132", async() => {
 >>>>>>> Stashed changes
@@ -183,7 +199,11 @@ using Web.Models;
                 EndContext();
                 BeginContext(391, 457, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "888badd02d7245279516448edf94dc36", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5729d344e0924959847ac07cc92e2d89", async() => {
+>>>>>>> Stashed changes
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5729d344e0924959847ac07cc92e2d89", async() => {
 >>>>>>> Stashed changes
@@ -192,7 +212,11 @@ using Web.Models;
                     EndContext();
                     BeginContext(436, 305, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c5b78c3cd98947239e96e27d05a3c54d", async() => {
+=======
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "25a35badd9e444d1bedd97544d34fbb1", async() => {
+>>>>>>> Stashed changes
 =======
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "25a35badd9e444d1bedd97544d34fbb1", async() => {
 >>>>>>> Stashed changes
@@ -224,7 +248,11 @@ using Web.Models;
                     EndContext();
                     BeginContext(751, 77, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3d829f5804db4c4086da1c048f86cc9c", async() => {
+=======
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c28aaf6ed071421b846de424641ff48f", async() => {
+>>>>>>> Stashed changes
 =======
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c28aaf6ed071421b846de424641ff48f", async() => {
 >>>>>>> Stashed changes
@@ -288,7 +316,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
             EndContext();
             BeginContext(859, 2559, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90cfe2fff17c40688f123fcdf1b67f82", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "23245774333440b5a747090e8be16f50", async() => {
+>>>>>>> Stashed changes
 =======
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "23245774333440b5a747090e8be16f50", async() => {
 >>>>>>> Stashed changes
@@ -307,7 +339,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
                 EndContext();
                 BeginContext(1382, 84, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8792c6eef74f43fdaef4c7b9fba6be95", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "67e49a6a9adf47f68d111a9606c4f812", async() => {
+>>>>>>> Stashed changes
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "67e49a6a9adf47f68d111a9606c4f812", async() => {
 >>>>>>> Stashed changes
@@ -338,7 +374,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
                 EndContext();
                 BeginContext(1609, 64, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1e677ee20f8242d0bda5bc6bc388b2a5", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "636d1ae239f2414da076a2a19d583502", async() => {
+>>>>>>> Stashed changes
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "636d1ae239f2414da076a2a19d583502", async() => {
 >>>>>>> Stashed changes
@@ -368,7 +408,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
                 EndContext();
                 BeginContext(1704, 65, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "985940b6b4184c928dcae31ff738f4cb", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4f1c8c2e04d244d080124f7887402a83", async() => {
+>>>>>>> Stashed changes
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4f1c8c2e04d244d080124f7887402a83", async() => {
 >>>>>>> Stashed changes
@@ -398,7 +442,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
                 EndContext();
                 BeginContext(1800, 69, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "72f87f2f3c0d4b47abe8e5e293fe0907", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04b73599f4534239b7e8e9281bdcce89", async() => {
+>>>>>>> Stashed changes
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04b73599f4534239b7e8e9281bdcce89", async() => {
 >>>>>>> Stashed changes
@@ -428,7 +476,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
                 EndContext();
                 BeginContext(1953, 40, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "68a8c41611004529bddd09cb9ebcaa64", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "dc59911214584fb9b6d8f68370e221b6", async() => {
+>>>>>>> Stashed changes
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "dc59911214584fb9b6d8f68370e221b6", async() => {
 >>>>>>> Stashed changes
@@ -461,7 +513,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
                 EndContext();
                 BeginContext(2171, 258, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "50cb5309a3c745fcb02d545bebd2753f", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "092b5afcf97249c2bc24d2487d30c34c", async() => {
+>>>>>>> Stashed changes
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "092b5afcf97249c2bc24d2487d30c34c", async() => {
 >>>>>>> Stashed changes
@@ -470,7 +526,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
                     EndContext();
                     BeginContext(2216, 51, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d1a7778a596f4257afbae4dbd147fe38", async() => {
+=======
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "901b74106d9a4342804c96eb9ed4a23f", async() => {
+>>>>>>> Stashed changes
 =======
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "901b74106d9a4342804c96eb9ed4a23f", async() => {
 >>>>>>> Stashed changes
@@ -492,7 +552,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
                     EndContext();
                     BeginContext(2277, 60, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf7827af6d044f00b6629e48c9fa2b34", async() => {
+=======
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "034e1b15a05a4ef18d5a01d1383d1e85", async() => {
+>>>>>>> Stashed changes
 =======
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "034e1b15a05a4ef18d5a01d1383d1e85", async() => {
 >>>>>>> Stashed changes
@@ -514,7 +578,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
                     EndContext();
                     BeginContext(2347, 62, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71576065714c4ababdae5cd2687dd2fe", async() => {
+=======
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "23b22c8699f54175aee0d25805d0ef78", async() => {
+>>>>>>> Stashed changes
 =======
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "23b22c8699f54175aee0d25805d0ef78", async() => {
 >>>>>>> Stashed changes
@@ -562,7 +630,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                 EndContext();
                 BeginContext(2435, 924, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ece0bc3da944ff8b42def00683b291b", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d794b625ce14d83975ac0a5f9622ad9", async() => {
+>>>>>>> Stashed changes
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d794b625ce14d83975ac0a5f9622ad9", async() => {
 >>>>>>> Stashed changes
@@ -571,7 +643,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                     EndContext();
                     BeginContext(2480, 353, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c6ba5f92c8404eb0bebb30292acc0da5", async() => {
+=======
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2d92b92c924548b5b946f1e403ab006d", async() => {
+>>>>>>> Stashed changes
 =======
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2d92b92c924548b5b946f1e403ab006d", async() => {
 >>>>>>> Stashed changes
@@ -603,7 +679,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                     EndContext();
                     BeginContext(2843, 420, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8b13a5785d3d463b9534784775ec0f7f", async() => {
+=======
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d383db49d934423cad49ea0e297b382e", async() => {
+>>>>>>> Stashed changes
 =======
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d383db49d934423cad49ea0e297b382e", async() => {
 >>>>>>> Stashed changes
@@ -635,7 +715,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                     EndContext();
                     BeginContext(3273, 66, false);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed30dad367a64aadba360ed520188eb7", async() => {
+=======
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "91e3b8c969764a71ad3aa96d242d67ba", async() => {
+>>>>>>> Stashed changes
 =======
                     __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "91e3b8c969764a71ad3aa96d242d67ba", async() => {
 >>>>>>> Stashed changes
