@@ -12,8 +12,6 @@ namespace API.Repository.Data
         public DepartmentRepo(MyContext context) : base(context)
         {
 
-        }
-
-        
+        }        
     }
 }

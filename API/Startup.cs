@@ -35,6 +35,7 @@ namespace API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("myConn")));
             services.AddScoped<DepartmentRepo>();
+            services.AddScoped<DivisionRepo>();
 
             services.AddIdentityCore<User>().AddEntityFrameworkStores<MyContext>();
 

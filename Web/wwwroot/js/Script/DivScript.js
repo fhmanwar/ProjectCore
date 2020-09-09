@@ -8,7 +8,7 @@ $(document).ready(function () {
         "pagination": true,
         "stateSave": true,
         "ajax": {
-            url: "/departments/loadDepart",
+            url: "/divisions/loadDiv",
             type: "GET",
             dataType: "json",
             dataSrc: "",
@@ -17,11 +17,13 @@ $(document).ready(function () {
             {
                 "data": "id",
                 render: function (data, type, row, meta) {
+                    //console.log(row);
                     return meta.row + meta.settings._iDisplayStart + 1;
                     //return meta.row + 1;
                 }
             },
             { "data": "name" },
+            { "data": "department.name" },
             {
                 "data": "createData",
                 'render': function (jsonDate) {
@@ -40,7 +42,7 @@ $(document).ready(function () {
                     //return date;
                     var date = new Date(jsonDate);
                     if (date.getFullYear() != 0001) {
-                        return moment(date).format('DD MMMM YYYY') + '<br> Time : ' + moment(date).format('HH: mm');
+                        return moment(date).format('DD MMMM YYYY') + '<br> Time : ' + moment(date).format('HH:mm');
                         //return ("0" + date.getDate()).slice(-2) + '-' + ("0" + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear();
                     }
                     return "Not updated yet";
@@ -67,15 +69,44 @@ function ClearScreen() {
     $('#add').show();
 }
 
+function LoadDepart(element) {
+    //debugger;
+    if (arrDepart.length === 0) {
+        $.ajax({
+            type: "Get",
+            url: "/departments/loadDepart",
+            success: function (data) {
+                arrDepart = data;
+                renderDepart(element);
+            }
+        });
+    }
+    else {
+        renderDepart(element);
+    }
+}
+
+function renderDepart(element) {
+    var $option = $(element);
+    $option.empty();
+    $option.append($('<option/>').val('0').text('Select Department').hide());
+    $.each(arrDepart, function (i, val) {
+        $option.append($('<option/>').val(val.id).text(val.name))
+    });
+}
+
+LoadDepart($('#DepartOption'))
+
 function GetById(id) {
     //debugger;
     $.ajax({
-        url: "/Departments/GetById/",
+        url: "/divisions/GetById/",
         data: { id: id }
     }).then((result) => {
         //debugger;
         $('#Id').val(result.id);
         $('#Name').val(result.name);
+        $('#DepartOption').val(result.department.id)
         $('#add').hide();
         $('#update').show();
         $('#myModal').modal('show');
@@ -84,15 +115,16 @@ function GetById(id) {
 
 function Save() {
     //debugger;
-    var Dept = new Object();
-    Dept.Id = 0;
-    Dept.Name = $('#Name').val();
+    var Div = new Object();
+    Div.Id = 0;
+    Div.Name = $('#Name').val();
+    Div.DepartmentID = $('#DepartOption').val();
     $.ajax({
         type: 'POST',
-        url: "/Departments/InsertOrUpdate/",
+        url: "/divisions/InsertOrUpdate/",
         cache: false,
         dataType: "JSON",
-        data: Dept
+        data: Div
     }).then((result) => {
         //debugger;
         if (result.statusCode == 200) {
@@ -113,15 +145,16 @@ function Save() {
 
 function Update() {
     //debugger;
-    var Dept = new Object();
-    Dept.Id = $('#Id').val();
-    Dept.Name = $('#Name').val();
+    var Div = new Object();
+    Div.Id = $('#Id').val();
+    Div.Name = $('#Name').val();
+    Div.DepartmentID = $('#DepartOption').val();
     $.ajax({
         type: 'POST',
-        url: "/Departments/InsertOrUpdate/",
+        url: "/divisions/InsertOrUpdate/",
         cache: false,
         dataType: "JSON",
-        data: Dept
+        data: Div
     }).then((result) => {
         //debugger;
         if (result.statusCode == 200) {
@@ -152,7 +185,7 @@ function Delete(id) {
         if (resultSwal.value) {
             //debugger;
             $.ajax({
-                url: "/Departments/Delete/",
+                url: "/divisions/Delete/",
                 data: { id: id }
             }).then((result) => {
                 //debugger;

@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Department";
+    ViewData["Title"] = "Division";
     Layout = "~/Views/Layout/_Layout.cshtml";
 }
 
@@ -33,8 +33,14 @@
                                 <input type="text" id="Id" name="Id" class="form-control" hidden>
                                 <div class="col-sm-12">
                                     <div class="form-group form-group-default">
-                                        <label>Department Name</label>
-                                        <input type="text" id="Name" name="Name" class="form-control" placeholder="fill Department Name">
+                                        <label>Division Name</label>
+                                        <input type="text" id="Name" name="Name" class="form-control" placeholder="fill Division Name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group form-group-default">
+                                        <label>Department</label>
+                                        <select class="form-control" id="DepartOption" name="DepartOption"></select>
                                     </div>
                                 </div>
                             </div>
@@ -55,6 +61,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Division</th>
                         <th>Department Name</th>
                         <th>Created Date</th>
                         <th>Updated Date</th>
@@ -67,5 +74,6 @@
 </div>
 
 @section Scripts{
-    <script src="~/js/Script/DepartScript.js"></script>
+    <script src="~/js/Script/DivScript.js"></script>
 }
+

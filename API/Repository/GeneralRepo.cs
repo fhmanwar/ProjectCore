@@ -43,7 +43,7 @@ namespace API.Repository
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<List<TEntity>> GetAll()
+        public virtual async Task<List<TEntity>> GetAll()
         {
             var data = await _context.Set<TEntity>().Where(x => x.isDelete == false ).ToListAsync();
             if (!data.Count.Equals(0))
@@ -53,7 +53,7 @@ namespace API.Repository
             return null;
         }
 
-        public async Task<TEntity> GetID(int Id)
+        public virtual async Task<TEntity> GetID(int Id)
         {
             var data = await _context.Set<TEntity>().SingleOrDefaultAsync(x => x.Id == Id && x.isDelete == false );
             if (!data.Equals(0))

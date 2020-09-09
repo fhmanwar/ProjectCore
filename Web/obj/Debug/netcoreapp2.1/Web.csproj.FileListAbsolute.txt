@@ -44,3 +44,4 @@ D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Web.csproj.C
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Web.dll
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Web.pdb
 D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Web.genruntimeconfig.cache
+D:\MII\MIICC\#14-MateriCore\ProjectCore\Web\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Division.cshtml.g.cs

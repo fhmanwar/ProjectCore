@@ -5,16 +5,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API.Models
+namespace API.ViewModels
 {
-    [Table("TB_M_Division")]
-    public class Division : BaseModel
+    public class DivisionVM
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        [ForeignKey("Department")]
         public int DepartmentId { get; set; }
-        public Department Department { get; set; }
+        public string DepartmentName { get; set; }
         public DateTimeOffset CreateData { get; set; }
         public DateTimeOffset UpdateDate { get; set; }
         public DateTimeOffset DeleteData { get; set; }
