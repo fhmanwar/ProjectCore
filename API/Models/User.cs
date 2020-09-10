@@ -12,5 +12,6 @@ namespace API.Models
     public class User : IdentityUser
     {
         public ICollection<UserRole> userRoles { get; set; }
+        public Employee Employee { get; set; }
     }
 }

@@ -146,6 +146,13 @@ namespace API.Controllers
                     RoleId = "2"
                 };
                 _context.UserRole.Add(uRole);
+                var emp = new Employee
+                {
+                    EmpId = user.Id,
+                    CreateData = DateTimeOffset.Now,
+                    isDelete = false
+                };
+                _context.Employees.Add(emp);
                 _context.SaveChanges();
                 return Ok("Successfully Created");
             }
