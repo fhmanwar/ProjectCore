@@ -36,7 +36,7 @@ namespace Web.Controllers
 
         public IActionResult LoadPie()
         {
-            IEnumerable<PieChartVM> departments = null;
+            IEnumerable<PieChartVM> pie = null;
             //var token = HttpContext.Session.GetString("token");
             //client.DefaultRequestHeaders.Add("Authorization", token);
             var resTask = client.GetAsync("charts/pie");
@@ -47,15 +47,37 @@ namespace Web.Controllers
             {
                 var readTask = result.Content.ReadAsAsync<List<PieChartVM>>();
                 readTask.Wait();
-                departments = readTask.Result;
+                pie = readTask.Result;
             }
             else
             {
-                departments = Enumerable.Empty<PieChartVM>();
+                pie = Enumerable.Empty<PieChartVM>();
                 ModelState.AddModelError(string.Empty, "Server Error try after sometimes.");
             }
-            return Json(departments);
+            return Json(pie);
+        }
 
+        public IActionResult LoadBar()
+        {
+            IEnumerable<PieChartVM> bar = null;
+            //var token = HttpContext.Session.GetString("token");
+            //client.DefaultRequestHeaders.Add("Authorization", token);
+            var resTask = client.GetAsync("charts/pie");
+            resTask.Wait();
+
+            var result = resTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<List<PieChartVM>>();
+                readTask.Wait();
+                bar = readTask.Result;
+            }
+            else
+            {
+                bar = Enumerable.Empty<PieChartVM>();
+                ModelState.AddModelError(string.Empty, "Server Error try after sometimes.");
+            }
+            return Json(bar);
         }
     }
 }
