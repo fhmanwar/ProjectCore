@@ -1,8 +1,6 @@
 ﻿
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Layout/_Layout.cshtml";
-}
+@{ ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/_Layout.cshtml"; }
 
 <!-- Content Row -->
 <div class="row">
@@ -85,4 +83,29 @@
     </div>
 </div>
 
+<div class="row">
 
+    <!-- Donut Chart -->
+    <div class="col-lg-6">
+        <div class="card ">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header ">
+                <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="col-md-12">
+                    <div class="amChart" id="pieChart"></div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+@section Scripts{
+    <script src="~/js/Script/DashboardScript.js"></script>
+}
