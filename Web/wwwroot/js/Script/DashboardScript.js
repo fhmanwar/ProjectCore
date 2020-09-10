@@ -34,7 +34,7 @@ var Pie = am4core.createFromConfig({
         "children": [{
             "type": "Label",
             "forceCreate": true,
-            "text": "Car",
+            "text": "Department",
             "horizontalCenter": "middle",
             "verticalCenter": "middle",
             "fontSize": 40
