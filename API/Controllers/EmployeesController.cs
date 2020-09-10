@@ -29,7 +29,7 @@ namespace API.Controllers
         {
             List<EmployeeVM> list = new List<EmployeeVM>();
             //var user = new UserVM();
-            var getData = await _context.Employees.Include("User").ToListAsync();
+            var getData = await _context.Employees.Include("User").Where(x => x.isDelete == false).ToListAsync();
             if (getData.Count == 0)
             {
                 return null;

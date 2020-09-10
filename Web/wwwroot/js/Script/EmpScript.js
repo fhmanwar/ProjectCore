@@ -1,4 +1,5 @@
 ﻿var table = null;
+
 $(document).ready(function () {
     table = $('#Employee').DataTable({
         "processing": true,
@@ -20,8 +21,8 @@ $(document).ready(function () {
                 }
             },
             { "data": "username" },
-            { "data": "address" },
-            { "data": "phone" },
+            //{ "data": "address" },
+            //{ "data": "phone" },
             {
                 "data": "createData",
                 'render': function (jsonDate) {
@@ -35,12 +36,11 @@ $(document).ready(function () {
             },
             {
                 "sortable": false,
-                "render": function (data, type, row) {
-                    //console.log(row);
+                "render": function (data, type, row, meta) {
                     $('[data-toggle="tooltip"]').tooltip();
-                    return '<button class="btn btn-outline-info btn-circle" data-placement="left" data-toggle="tooltip" data-animation="false" title="Detail" onclick="return GetById(' + row.id + ')" ><i class="fa fa-lg fa-info"></i></button>'
+                    return '<button class="btn btn-outline-info btn-circle" data-placement="left" data-toggle="tooltip" data-animation="false" title="Detail" onclick="return GetById(' + meta.row + ')" ><i class="fa fa-lg fa-info"></i></button>'
                         + '&nbsp;'
-                        + '<button class="btn btn-outline-danger btn-circle" data-placement="right" data-toggle="tooltip" data-animation="false" title="Delete" onclick="return Delete(' + row.id + ')" ><i class="fa fa-lg fa-times"></i></button>'
+                        + '<button class="btn btn-outline-danger btn-circle" data-placement="right" data-toggle="tooltip" data-animation="false" title="Delete" onclick="return Delete(' + meta.row + ')" ><i class="fa fa-lg fa-times"></i></button>'
                 }
             }
         ]
@@ -54,23 +54,31 @@ function ClearScreen() {
     $('#add').show();
 }
 
-function GetById(id) {
+function GetById(number) {
     //debugger;
+    //console.log(table.row(number).data());
+    var id = table.row(number).data().empId;
     $.ajax({
         url: "/employees/GetById/",
-        data: { id: id }
+        data: { Id: id }
     }).then((result) => {
         //debugger;
-        $('#Id').val(result.id);
-        $('#Name').val(result.name);
-        $('#DepartOption').val(result.department.id)
-        $('#add').hide();
+        $('#Id').append(result.empId);
+        $('#Name').append(result.username);
+        $('#Address').append(result.address);
+        $('#Phone').append(result.phone);
+
+        var date = new Date(result.createData);
+        $('#HireDate').append(moment(date).format('DD MMMM YYYY'));
+        $('#HireTime').append(moment(date).format('LTS'))
+        //$('#add').hide();
         $('#update').show();
         $('#myModal').modal('show');
     })
 }
 
-function Delete(id) {
+function Delete(number) {
+    var id = table.row(number).data().empId;
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -83,7 +91,7 @@ function Delete(id) {
             //debugger;
             $.ajax({
                 url: "/employees/Delete/",
-                data: { id: id }
+                data: { Id: id }
             }).then((result) => {
                 //debugger;
                 if (result.statusCode == 200) {

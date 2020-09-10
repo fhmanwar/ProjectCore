@@ -46,7 +46,7 @@ namespace Web.Controllers
 
         }
 
-        public IActionResult GetById(int Id)
+        public IActionResult GetById(string Id)
         {
             EmployeeVM emp = null;
             //var token = HttpContext.Session.GetString("token");
@@ -67,7 +67,7 @@ namespace Web.Controllers
             return Json(emp);
         }
 
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
             //var token = HttpContext.Session.GetString("token");
             //client.DefaultRequestHeaders.Add("Authorization", token);
