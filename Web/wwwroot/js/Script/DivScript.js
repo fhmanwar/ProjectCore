@@ -62,25 +62,62 @@ $(document).ready(function () {
                 }
             }
         ],
-        initComplete: function () {
-            this.api().columns(1).every(function () {
-                var column = this;
-                var select = $('<select><option value="">Divisions All</option></select>')
-                    .appendTo($(column.header()).empty())
-                    .on('change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
-
-                        column
-                            .search(val ? '^' + val + '$' : '', true, false)
-                            .draw();
+        dom: 'Bfrtip',
+        buttons: [
+            'copy',
+            'csv',
+            'excel',
+            {
+                extend: 'pdfHtml5',
+                text: '<i class="fas fa-file-pdf"></i> PDF',
+                className: 'btn btn-info',
+                title: 'Division List',
+                filename: 'cek ' + moment(),
+                exportOptions: {
+                    //format: {
+                    //    body: function (data, row, column, node) {
+                    //        // Strip $ from salary column to make it numeric
+                    //        //return column === 5 ? data.replace(/[$,]/g, '') : data;
+                    //        return column === 2 ? data.replace(/[$,]/g, '') : data;
+                    //    }
+                    //},
+                    columns: [0, 1, 2, 3, 4],
+                    search: 'applied',
+                    order: 'applied',
+                    modifier: {
+                        page: 'current',
+                    },
+                },
+                customize: function (doc) {
+                    //doc.content.splice(1, 0, {
+                    //    margin: [0, 0, 0, 12],
+                    //    alignment: 'center',
+                    //});
+                    debugger;
+                    var rowCount = doc.content[1].table.body.length;
+                    for (i = 1; i < rowCount; i++) {
+                        doc.content[1].table.body[i][2].alignment = 'center';
+                    };
+                    doc.content[1].table.body[0][0].text = 'No.';
+                    doc.content[1].table.body[0][2].text = 'Department';
+                    doc['footer'] = (function (page, pages) {
+                        return {
+                            columns: [
+                                'This is your left footer column',
+                                {
+                                    // This is the right column
+                                    alignment: 'right',
+                                    text: ['page ', { text: page.toString() }, ' of ', { text: pages.toString() }]
+                                }
+                            ],
+                            margin: [10, 0]
+                        }
                     });
-
-                column.data().unique().sort().each(function (d, j) {
-                    select.append('<option value="' + d + '">' + d + '</option>')
-                });
-            });
+                }
+            },
+            'print'
+        ],
+        initComplete: function () {
             this.api().columns(2).every(function () {
                 var column = this;
                 var select = $('<select><option value="">Department All</option></select>')
