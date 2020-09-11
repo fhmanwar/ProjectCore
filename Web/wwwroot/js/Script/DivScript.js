@@ -66,7 +66,7 @@ $(document).ready(function () {
         buttons: [
             {
                 extend: 'pdfHtml5',
-                text: '<i class="fas fa-file-pdf"></i> PDF',
+                text: '<i class="fas fa-file-pdf" data-placement="Bottom" data-toggle="tooltip" data-animation="false" title="PDF" ></i>',
                 className: 'btn btn-danger',
                 title: 'Division List',
                 filename: 'cek ' + moment(),
@@ -114,7 +114,7 @@ $(document).ready(function () {
             },
             {
                 extend: 'excelHtml5',
-                text: '<i class="fas fa-file-excel"></i> Excel',
+                text: '<i class="fas fa-file-excel" data-placement="Bottom" data-toggle="tooltip" data-animation="false" title="Excel" ></i>',
                 className: 'btn btn-success',
                 title: 'Division List',
                 filename: 'cek ' + moment(),
@@ -137,7 +137,7 @@ $(document).ready(function () {
             },
             {
                 extend: 'csvHtml5',
-                text: '<i class="fas fa-file-csv"></i> CSV',
+                text: '<i class="fas fa-file-csv" data-placement="Bottom" data-toggle="tooltip" data-animation="false" title="CSV"></i>',
                 className: 'btn btn-info',
                 title: 'Division List',
                 filename: 'cek ' + moment(),
@@ -158,8 +158,12 @@ $(document).ready(function () {
                     $('c[r=C2] t', sheet).text('Department');
                 }
             },
-            'copy',
-            'print'
+            {
+                extend: 'print',
+                text: '<i class="fas fa-print" data-placement="Bottom" data-toggle="tooltip" data-animation="false" title="Print"></i>',
+                className: 'btn btn-default',
+                title: 'Division List',
+            }
         ],
         initComplete: function () {
             this.api().columns(2).every(function () {
