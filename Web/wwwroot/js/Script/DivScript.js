@@ -2,7 +2,7 @@
 var arrDepart = [];
 
 $(document).ready(function () {
-    table = $('#Department').DataTable({
+    table = $('#Divisions').DataTable({
         "processing": true,
         "responsive": true,
         "pagination": true,
@@ -23,7 +23,10 @@ $(document).ready(function () {
                 }
             },
             { "data": "name" },
-            { "data": "department.name" },
+            {
+                "sortable": false,
+                "data": "department.name"
+            },
             {
                 "data": "createData",
                 'render': function (jsonDate) {
@@ -58,7 +61,45 @@ $(document).ready(function () {
                         + '<button class="btn btn-outline-danger btn-circle" data-placement="right" data-toggle="tooltip" data-animation="false" title="Delete" onclick="return Delete(' + row.id + ')" ><i class="fa fa-lg fa-times"></i></button>'
                 }
             }
-        ]
+        ],
+        initComplete: function () {
+            this.api().columns(1).every(function () {
+                var column = this;
+                var select = $('<select><option value="">Divisions All</option></select>')
+                    .appendTo($(column.header()).empty())
+                    .on('change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+
+                        column
+                            .search(val ? '^' + val + '$' : '', true, false)
+                            .draw();
+                    });
+
+                column.data().unique().sort().each(function (d, j) {
+                    select.append('<option value="' + d + '">' + d + '</option>')
+                });
+            });
+            this.api().columns(2).every(function () {
+                var column = this;
+                var select = $('<select><option value="">Department All</option></select>')
+                    .appendTo($(column.header()).empty())
+                    .on('change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+
+                        column
+                            .search(val ? '^' + val + '$' : '', true, false)
+                            .draw();
+                    });
+
+                column.data().unique().sort().each(function (d, j) {
+                    select.append('<option value="' + d + '">' + d + '</option>')
+                });
+            });
+        }
     });
 });
 
