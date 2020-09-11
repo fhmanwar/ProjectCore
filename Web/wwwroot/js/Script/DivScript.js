@@ -64,13 +64,10 @@ $(document).ready(function () {
         ],
         dom: 'Bfrtip',
         buttons: [
-            'copy',
-            'csv',
-            'excel',
             {
                 extend: 'pdfHtml5',
                 text: '<i class="fas fa-file-pdf"></i> PDF',
-                className: 'btn btn-info',
+                className: 'btn btn-danger',
                 title: 'Division List',
                 filename: 'cek ' + moment(),
                 exportOptions: {
@@ -115,6 +112,53 @@ $(document).ready(function () {
                     });
                 }
             },
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fas fa-file-excel"></i> Excel',
+                className: 'btn btn-success',
+                title: 'Division List',
+                filename: 'cek ' + moment(),
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4],
+                    search: 'applied',
+                    order: 'applied',
+                    modifier: {
+                        page: 'current',
+                    },
+                },
+                customize: function (excel) {
+                    debugger;
+                    var sheet = excel.xl.worksheets['sheet1.xml'];
+                    // jQuery selector to add a border
+                    //$('col c[r*="10"]', sheet).attr('s', '25');
+                    $('c[r=A2] t', sheet).text('No.');
+                    $('c[r=C2] t', sheet).text('Department');
+                }
+            },
+            {
+                extend: 'csvHtml5',
+                text: '<i class="fas fa-file-csv"></i> CSV',
+                className: 'btn btn-info',
+                title: 'Division List',
+                filename: 'cek ' + moment(),
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4],
+                    search: 'applied',
+                    order: 'applied',
+                    modifier: {
+                        page: 'current',
+                    },
+                },
+                customize: function (excel) {
+                    debugger;
+                    var sheet = excel.xl.worksheets['sheet1.xml'];
+                    // jQuery selector to add a border
+                    //$('col c[r*="10"]', sheet).attr('s', '25');
+                    $('c[r=A2] t', sheet).text('No.');
+                    $('c[r=C2] t', sheet).text('Department');
+                }
+            },
+            'copy',
             'print'
         ],
         initComplete: function () {
